@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="UpWell — functional drinks with a smart cap. Design preview.">
+<meta name="theme-color" content="#C42E62">
+<title>UpWell — The drinks</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<script>(function(){var m=location.search.match(/view=(desktop|mobile)/);try{if(m)sessionStorage.setItem('uw-view',m[1]);var p=sessionStorage.getItem('uw-view');}catch(e){}var small=window.matchMedia('(max-width: 760px)').matches;var want=p?p==='mobile':small;if(want!==true){location.replace('/product'+location.hash);}})();</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+body{margin:0;background:#FBF7F0}
+a{color:#1C1414}a:hover{color:#C42E62}
+.disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:0.95}
+.mono{font-family:'IBM Plex Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
+.b{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
+.row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 20px}
+.row::-webkit-scrollbar{display:none}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+<div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh;max-width:520px;margin:0 auto;padding-bottom:96px">
+
+<header style="position:sticky;top:0;z-index:30;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<div style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 20px">
+<a href="/m/" aria-label="Back to home" style="width:44px;height:44px;display:flex;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+<img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:22px;width:auto">
+<a href="/m/cart" aria-label="Cart" style="width:44px;height:44px;display:flex;align-items:center;justify-content:flex-end"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+</div>
+</header>
+
+<div class="row" style="padding-top:12px;padding-bottom:12px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="b" type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="flex:0 0 auto;border-radius:999px;padding:0 14px;min-height:42px;font-weight:700;font-size:13px;display:flex;align-items:center;gap:7px;background:{{t.bg}};color:{{t.fg}};border:1.5px solid {{t.border}}"><span style="width:9px;height:9px;border-radius:50%;background:{{t.dot}}"></span>{{t.name}}</button></sc-for>
+</div>
+
+<div style="padding:0 20px">
+<div style="position:relative;aspect-ratio:1 / 1;border-radius:24px;overflow:hidden;background:{{p.bg}}">
+<sc-for list="{{gal}}" as="g" hint-placeholder-count="3"><img src="{{g.img}}" alt="{{g.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{g.pos}};opacity:{{g.op}};transition:opacity .5s"></sc-for>
+<button class="b" type="button" onClick="{{prev}}" aria-label="Previous image" style="position:absolute;left:10px;top:50%;margin-top:-22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+<button class="b" type="button" onClick="{{next}}" aria-label="Next image" style="position:absolute;right:10px;top:50%;margin-top:-22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:18px">→</button>
+<div style="position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px"><sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><span style="width:{{d.w}};height:7px;border-radius:4px;background:#FFFFFF;opacity:{{d.op}};transition:all .3s"></span></sc-for></div>
+</div>
+</div>
+
+<div style="padding:20px 20px 0">
+<div class="mono" style="font-size:11px;color:{{p.color}};margin-bottom:8px">{{p.moment}}</div>
+<h1 class="disp" style="font-size:46px;margin:0 0 10px">{{p.name}}</h1>
+<p style="font-size:19px;line-height:1.35;font-weight:600;margin:0 0 10px">{{p.emotion}}</p>
+<p style="font-size:15px;line-height:1.55;color:#5B5150;margin:0 0 14px">{{p.desc}}</p>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px"><sc-for list="{{p.facts}}" as="f" hint-placeholder-count="4"><span style="background:{{p.tint}};border-radius:999px;padding:7px 11px;font-weight:700;font-size:12px">{{f}}</span></sc-for></div>
+
+<div style="background:#FFFFFF;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:12px;border:1px solid #EAE2D6">
+<div role="group" aria-label="Purchase type" style="display:grid;grid-template-columns:1fr 1fr;background:#F3ECE1;border-radius:999px;padding:4px">
+<button class="b" type="button" onClick="{{pickSub}}" aria-pressed="{{subOn}}" style="border-radius:999px;min-height:44px;font-weight:700;font-size:13.5px;background:{{subBg}};color:{{subFg}}">Subscribe &amp; save</button>
+<button class="b" type="button" onClick="{{pickOnce}}" aria-pressed="{{onceOn}}" style="border-radius:999px;min-height:44px;font-weight:700;font-size:13.5px;background:{{onceBg}};color:{{onceFg}}">One-time</button>
+</div>
+<sc-for list="{{tiers}}" as="t" hint-placeholder-count="3">
+<button class="b" type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="text-align:left;border-radius:16px;padding:12px 14px;border:2px solid {{t.border}};background:{{t.bg}};display:flex;align-items:center;gap:12px;min-height:56px">
+<span style="width:20px;height:20px;border-radius:50%;border:2px solid {{t.border}};display:flex;align-items:center;justify-content:center;flex:0 0 auto"><span style="width:10px;height:10px;border-radius:50%;background:{{t.dot}}"></span></span>
+<span style="flex:1"><span style="display:block;font-weight:700;font-size:15px">{{t.name}} · {{t.size}} bottles</span><span style="display:block;font-size:12px;color:#5B5150;margin-top:2px">{{t.per}} per bottle</span></span>
+<span style="font-size:11px;font-weight:700;background:{{p.tint}};color:{{p.color}};padding:5px 9px;border-radius:999px">−{{t.disc}}%</span>
+</button>
+</sc-for>
+<div style="font-size:12.5px;color:#5B5150;line-height:1.5">{{buyNote}}</div>
+<div style="font-size:11px;color:#8A7F7C">Sample prices · to be confirmed</div>
+</div>
+</div>
+
+<section style="background:#1C1414;color:#FBF7F0;padding:40px 20px;margin-top:36px">
+<h2 class="disp" style="font-size:38px;margin:0 0 18px">Twist. Tap. Shake. Glow.</h2>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<sc-for list="{{steps}}" as="x" hint-placeholder-count="4"><div style="background:{{x.bg}};border-radius:16px;padding:14px"><div class="disp" style="font-size:24px;color:{{x.c}}">{{x.n}} {{x.t}}</div><div style="font-size:12.5px;color:{{x.tc}};margin-top:6px;line-height:1.45">{{x.d}}</div></div></sc-for>
+</div>
+</section>
+
+<section style="padding:36px 20px 0">
+<div class="mono" style="font-size:11px;color:{{p.color}};margin-bottom:10px">What's inside</div>
+<h2 class="disp" style="font-size:38px;margin:0 0 10px">Short label. Real doses.</h2>
+<sc-for list="{{p.ingredients}}" as="i" hint-placeholder-count="3"><details style="border-bottom:1px solid #EAE2D6;padding:14px 0"><summary style="display:flex;justify-content:space-between;gap:12px;font-weight:700;font-size:16px;min-height:28px;align-items:center"><span>{{i.name}}</span><span style="color:{{p.color}}">{{i.dose}}</span></summary><p style="color:#5B5150;line-height:1.55;font-size:14.5px;margin:8px 0 0">{{i.note}}</p></details></sc-for>
+<p style="font-size:12px;color:#8A7F7C;margin:12px 0 16px">Full label: {{p.extras}} · 230 ml</p>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<div style="border-radius:16px;overflow:hidden;aspect-ratio:1 / 1;position:relative"><img src="{{p.ing}}" alt="{{p.ingAlt}}" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,0.92);font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:999px">{{p.ingAlt}}</span></div>
+<div style="border-radius:16px;overflow:hidden;aspect-ratio:1 / 1"><img src="{{p.life}}" alt="{{p.name}} lifestyle" style="width:100%;height:100%;object-fit:cover;object-position:{{p.lifePos}};display:block"></div>
+</div>
+</section>
+
+<section style="padding:36px 0 20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding:0 20px;margin-bottom:12px"><h2 class="disp" style="font-size:30px;margin:0">Complete your box</h2><a href="/m/box" style="font-weight:700;font-size:13px">Build →</a></div>
+<div class="row">
+<sc-for list="{{others}}" as="o" hint-placeholder-count="3"><button class="b" type="button" onClick="{{o.pick}}" style="flex:0 0 auto;width:150px;text-align:left;background:{{o.bg}};color:{{o.fg}};border-radius:20px;overflow:hidden;display:flex;flex-direction:column"><span style="display:flex;justify-content:center;padding-top:10px"><img src="{{o.bottle}}" alt="" style="height:140px;width:auto"></span><span style="padding:10px 12px 14px"><span class="disp" style="display:block;font-size:17px">{{o.name}}</span><span style="display:block;font-size:12px;font-weight:700;margin-top:6px">View →</span></span></button></sc-for>
+</div>
+</section>
+
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center">
+<div style="width:100%;max-width:520px;background:rgba(255,255,255,0.98);border-top:1px solid #EAE2D6;padding:10px 16px 14px;box-sizing:border-box;display:flex;align-items:center;gap:12px">
+<img src="{{p.bottle}}" alt="" style="height:52px;width:auto">
+<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:14px">{{perBottle}} <span style="font-weight:500;color:#5B5150;font-size:12px">/ bottle</span></div><div style="font-size:11.5px;color:#5B5150">{{barLine}}</div></div>
+<a href="/m/box" style="background:{{p.color}};color:#FFFFFF;text-decoration:none;font-weight:700;font-size:14px;padding:14px 18px;border-radius:999px;white-space:nowrap">Build my box</a>
+</div>
+</div>
+</div>
+</template>
+<script id="dc-logic" type="text/x-dc" data-props='{"basePrice":{"editor":"number","default":3},"$preview":{"width":390,"height":3000}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { id: 'collagen', img: 0, buy: 'sub', tier: 12 };
+}
+renderVals() {
+const s = this.state;
+const P = {
+collagen: { name: 'Collagen + Creatine', moment: '01 · Morning · Glow', emotion: 'Your daily beauty & strength ritual, made effortless.', desc: '7g hydrolyzed collagen and 3g creatine, with hyaluronic acid and vitamin C, kept fresh in the cap until you twist.', color: '#C42E62', tint: '#FDE6E5', bg: '#FDE6E5', fg: '#1C1414', bottle: '/assets/1e312cf70451d331518596eb690219f9.webp',
+imgs: [['/assets/0fe6caf0e2b5b9ef79e679553d4f7955.webp', '50% 50%'], ['/assets/50914b7556a6f3a5017551ba07718969.webp', '55% 50%'], ['/assets/a1eb70b36a8e9bf1c2b00c227a10adb1.webp', '50% 50%']], ing: '/assets/ee62f1aebd543b544b10ad6e5038c038.webp', ingAlt: 'Collagen peptides', life: '/assets/50914b7556a6f3a5017551ba07718969.webp', lifePos: '50% 50%',
+facts: ['30 calories', '7g collagen', '3g creatine', '0g sugar'], extras: 'Hyaluronic acid · Vitamin C · Collagen peptides',
+ingredients: [{ name: 'Hydrolyzed collagen', dose: '7g', note: 'The structural protein in skin, hair and nails.' }, { name: 'Creatine', dose: '3g', note: 'One of the most researched supplements for strength.' }, { name: 'Hyaluronic acid + vitamin C', dose: '—', note: 'Vitamin C supports normal collagen formation.' }] },
+chocolate: { name: 'Chocolate Clear Whey', moment: '02 · After your workout · Recover', emotion: 'Post-workout recovery, without the heavy shake.', desc: '9g of premium imported clear whey with BCAAs, EAAs and digestive enzymes. Zero added sugar.', color: '#7A4327', tint: '#F3E6DD', bg: '#120504', fg: '#FBF7F0', bottle: '/assets/df1379f946c6783678c913de3b1653e9.webp',
+imgs: [['/assets/9993932b428a419fe401776856f6916b.webp', '50% 50%'], ['/assets/f67fa82670b93d5138b5176d3e684d78.webp', '55% 40%'], ['/assets/91d1fd525ea08ab3e89ea8713784a8b2.webp', '50% 50%']], ing: '/assets/50667c155defffd163d79e988230f558.webp', ingAlt: 'Clear whey', life: '/assets/f67fa82670b93d5138b5176d3e684d78.webp', lifePos: '55% 35%',
+facts: ['45 calories', '9g protein', '0g added sugar', 'No palm oil'], extras: 'Taurine · L-Glutamine · L-Arginine · Digestive enzymes',
+ingredients: [{ name: 'Clear whey protein', dose: '9g', note: 'Imported whey in a light, clear format.' }, { name: 'BCAAs + EAAs', dose: '1.8g · 3.8g', note: 'Amino acids that support muscle recovery.' }, { name: 'Digestive enzymes', dose: '—', note: 'Added to make it easy to digest.' }] },
+raspberry: { name: 'Raspberry Protein+', moment: '03 · Intense training · Refresh', emotion: 'Your refresh after the hardest sessions.', desc: '9g organic pea protein with electrolytes, biotin and vitamin C. Dairy free, no preservatives.', color: '#A61F4E', tint: '#FBE3EA', bg: '#B42D5A', fg: '#FFFFFF', bottle: '/assets/03165d99b540fc3ded3ff290b96b0d9a.webp',
+imgs: [['/assets/552d2a94be646317865928bd600dd265.webp', '50% 50%'], ['/assets/43aad4fb3324dd2647a7d6d79d848a6a.webp', '45% 35%'], ['/assets/0289f17579e027f6e9e3da68fd4c90f0.webp', '50% 50%']], ing: '/assets/8598af15a952f595c32c5cddfad1782e.webp', ingAlt: 'Pea protein', life: '/assets/43aad4fb3324dd2647a7d6d79d848a6a.webp', lifePos: '45% 30%',
+facts: ['45 calories', '9g plant protein', '0g sugar', 'Electrolytes'], extras: 'Vitamin C · Biotin · Potassium · Magnesium',
+ingredients: [{ name: 'Organic pea protein', dose: '9g', note: 'Plant-based protein for active days.' }, { name: 'Electrolytes blend', dose: '—', note: 'Potassium and magnesium to help you rehydrate.' }, { name: 'Biotin + vitamin C', dose: '—', note: 'Supporting vitamins listed on the label.' }] },
+matcha: { name: 'Coconut Matcha', moment: '04 · Afternoon · Reset', emotion: 'Your afternoon reset, minus the crash.', desc: 'Matcha with L-theanine, creamy organic coconut milk and MCTs. Zero sugar, 35 calories.', color: '#0F7A6C', tint: '#E3EFDA', bg: '#D2E0B4', fg: '#12302A', bottle: '/assets/5d6a6bf7d30273993f2a59b1dade3aa2.webp',
+imgs: [['/assets/f7ee937067f3e9c0bdd7a1589f332dac.webp', '50% 50%'], ['/assets/431c04fb8489a0c8f6695c1043e3575c.webp', '30% 50%'], ['/assets/de5a8b59355c4463590d8aef8b5e5fdc.webp', '50% 50%']], ing: '/assets/47d09028a84a37fed1809caec01027d5.webp', ingAlt: 'Matcha', life: '/assets/431c04fb8489a0c8f6695c1043e3575c.webp', lifePos: '30% 50%',
+facts: ['35 calories', '0g sugar', 'L-theanine', 'Dairy free'], extras: 'Natural MCTs · L-Theanine · Organic matcha · Coconut milk',
+ingredients: [{ name: 'Matcha + L-theanine', dose: '—', note: 'A smoother, calmer lift.' }, { name: 'Organic coconut milk', dose: '—', note: 'Creamy and dairy free.' }, { name: 'Natural MCTs', dose: '—', note: 'Fats from coconut.' }] }
+};
+const ORDER = ['collagen', 'chocolate', 'raspberry', 'matcha'];
+const p = P[s.id];
+const isSub = s.buy === 'sub';
+const base = Number(this.props.basePrice ?? 3);
+const DISC = { 6: 5, 12: 10, 24: 15 };
+const dOf = (size) => DISC[size] + (isSub ? 5 : 0);
+const money = (v) => '$' + v.toFixed(2);
+const tabs = ORDER.map((k) => { const on = s.id === k; return { name: P[k].name, dot: P[k].color, on: on ? 'true' : 'false', bg: on ? '#1C1414' : '#FFFFFF', fg: on ? '#FBF7F0' : '#1C1414', border: on ? '#1C1414' : '#D8CEBF', pick: () => this.setState({ id: k, img: 0 }) }; });
+const gal = p.imgs.map(([img, pos], i) => ({ img, pos, alt: p.name, op: s.img === i ? '1' : '0' }));
+const dots = p.imgs.map((x, i) => ({ w: s.img === i ? '22px' : '7px', op: s.img === i ? '1' : '0.6' }));
+const T = [[6, 'Explorer'], [12, 'Insider'], [24, 'Legend']];
+const tiers = T.map(([size, name]) => { const on = s.tier === size; return { size, name, disc: dOf(size), per: money(base * (1 - dOf(size) / 100)), on: on ? 'true' : 'false', border: on ? p.color : '#EAE2D6', bg: on ? p.tint : '#FFFFFF', dot: on ? p.color : 'transparent', pick: () => this.setState({ tier: size }) }; });
+const tierName = T.filter((t) => t[0] === s.tier)[0][1];
+const steps = [['01', 'Twist', 'Hold the band, twist counter-clockwise.'], ['02', 'Tap', 'Tap firmly. The ingredients drop in.'], ['03', 'Shake', 'A few seconds. No shaker.'], ['04', 'Glow', 'Freshly mixed, anywhere.']].map(([n, t, d], i) => ({ n, t, d, bg: i === 3 ? p.color : '#2A2020', c: i === 3 ? '#FFFFFF' : '#E9849F', tc: i === 3 ? '#FFFFFF' : '#BDB2AF' }));
+const others = ORDER.filter((k) => k !== s.id).map((k) => ({ name: P[k].name, bg: P[k].bg, fg: P[k].fg, bottle: P[k].bottle, pick: () => this.setState({ id: k, img: 0 }) }));
+const n = p.imgs.length;
+return {
+p, tabs, gal, dots, tiers, steps, others,
+prev: () => this.setState({ img: (s.img + n - 1) % n }), next: () => this.setState({ img: (s.img + 1) % n }),
+subOn: isSub ? 'true' : 'false', onceOn: isSub ? 'false' : 'true',
+subBg: isSub ? '#1C1414' : 'transparent', subFg: isSub ? '#FBF7F0' : '#1C1414', onceBg: !isSub ? '#1C1414' : 'transparent', onceFg: !isSub ? '#FBF7F0' : '#1C1414',
+pickSub: () => this.setState({ buy: 'sub' }), pickOnce: () => this.setState({ buy: 'once' }),
+buyNote: isSub ? 'Mix in any drink next. Extra 5% off, free delivery, skip anytime.' : 'Any mix, delivered once. No subscription.',
+perBottle: money(base * (1 - dOf(s.tier) / 100)),
+barLine: tierName + ' · ' + s.tier + ' bottles · ' + (isSub ? 'subscribed' : 'one-time') + ' · −' + dOf(s.tier) + '%'
+};
+}
+}
+</script>
+<script src="/js/morphdom.min.js"></script>
+<script src="/js/runtime.js"></script>
+</body>
+</html>

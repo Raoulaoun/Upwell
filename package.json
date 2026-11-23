@@ -1,0 +1,9 @@
+{
+  "name": "upwell-website-preview",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UpWell website design preview (static, desktop + mobile)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="UpWell — functional drinks with a smart cap. Design preview.">
+<meta name="theme-color" content="#C42E62">
+<title>UpWell — Build your box</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<script>(function(){var m=location.search.match(/view=(desktop|mobile)/);try{if(m)sessionStorage.setItem('uw-view',m[1]);var p=sessionStorage.getItem('uw-view');}catch(e){}var small=window.matchMedia('(max-width: 760px)').matches;var want=p?p==='mobile':small;if(want!==false){location.replace('/m/box'+location.hash);}})();</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+body{margin:0;background:#FBF7F0}
+a{color:#1C1414}a:hover{color:#C42E62}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:0.95}
+.mono{font-family:'IBM Plex Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
+.nav-links{display:flex;gap:34px}
+.b{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
+.q{font:inherit;cursor:pointer;width:46px;height:46px;border-radius:50%;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .2s}
+.q:active{transform:scale(0.9)}
+.card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(28,20,20,0.12)}
+.card .btl{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .btl{transform:translateY(-8px) rotate(-3deg)}
+.pop{animation:pop .5s cubic-bezier(.2,1.4,.4,1) both}
+.ready{animation:ready .6s cubic-bezier(.2,1.4,.4,1) both}
+.shine{animation:shine 2.6s ease-in-out infinite}
+.pill{transition:transform .2s ease,box-shadow .2s ease}
+.pill:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(196,46,98,0.32)}
+.tier{transition:all .3s cubic-bezier(.2,.7,.2,1)}
+.tier:hover{transform:translateY(-4px)}
+@keyframes pop{0%{opacity:0;transform:translateY(-60px) scale(.6)}100%{opacity:1;transform:none}}
+@keyframes ready{0%{opacity:0;transform:scale(.7)}100%{opacity:1;transform:none}}
+@keyframes shine{0%,100%{box-shadow:0 30px 60px rgba(196,46,98,0.25)}50%{box-shadow:0 30px 80px rgba(196,46,98,0.5)}}
+@media (prefers-reduced-motion:reduce){.pop,.ready,.shine{animation:none}}
+@media (max-width:820px){.nav-links{display:none}.h1{font-size:58px !important}}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+<div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px">
+<div style="display:flex;align-items:center;gap:44px">
+<a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:30px;width:auto;display:block"></a>
+<nav class="nav-links" aria-label="Main">
+<a href="/box" style="text-decoration:none;font-weight:600;font-size:17px;color:#C42E62">Build your box</a>
+<a href="/#drinks" style="text-decoration:none;font-weight:500;font-size:17px">Drinks</a>
+<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:17px">Ingredients</a>
+<a href="/#app" style="text-decoration:none;font-weight:500;font-size:17px">App</a>
+</nav>
+</div>
+<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+</div>
+</header>
+
+<section style="padding:30px 0 56px">
+<div class="wrap">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px">
+<div>
+<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:10px">Build your box</div>
+<h1 class="disp h1" style="font-size:60px;margin:0">Your mix. Your way.</h1>
+</div>
+<div role="group" aria-label="Purchase type" style="display:flex;background:#FFFFFF;border:1px solid #EAE2D6;border-radius:999px;padding:5px;gap:4px">
+<button class="b" type="button" onClick="{{pickSub}}" aria-pressed="{{subOn}}" style="border-radius:999px;min-height:46px;padding:0 20px;font-weight:700;font-size:15px;background:{{subBg}};color:{{subFg}};transition:all .25s">Subscribe &amp; save <span style="font-weight:600;opacity:0.85">+{{subExtra}}%</span></button>
+<button class="b" type="button" onClick="{{pickOnce}}" aria-pressed="{{onceOn}}" style="border-radius:999px;min-height:46px;padding:0 20px;font-weight:700;font-size:15px;background:{{onceBg}};color:{{onceFg}};transition:all .25s">One-time purchase</button>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+
+<div style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px">
+
+<div>
+<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:10px"><span class="disp" style="font-size:26px;color:#C42E62">1</span><span class="disp" style="font-size:22px">Box size</span><span style="font-size:13px;color:#8A7F7C">— bigger box, bigger discount</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+<sc-for list="{{sizes}}" as="z" hint-placeholder-count="3">
+<button class="b tier" type="button" onClick="{{z.pick}}" aria-pressed="{{z.on}}" style="text-align:left;border-radius:20px;padding:14px 16px;background:{{z.bg}};color:{{z.fg}};border:2px solid {{z.border}};display:flex;align-items:center;gap:12px;box-shadow:{{z.shadow}}">
+<span class="disp" style="font-size:44px">{{z.size}}</span>
+<span style="flex:1;min-width:0"><span class="disp" style="display:block;font-size:18px">{{z.name}}</span><span style="display:block;font-size:12px;opacity:0.75;margin-top:3px">bottles</span></span>
+<span class="mono" style="font-size:11px;background:{{z.tagBg}};color:{{z.tagFg}};padding:6px 9px;border-radius:999px;white-space:nowrap">−{{z.disc}}%</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+<div style="display:flex;align-items:baseline;gap:10px"><span class="disp" style="font-size:26px;color:#C42E62">2</span><span class="disp" style="font-size:22px">Fill it your way</span></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+<sc-for list="{{presets}}" as="p" hint-placeholder-count="3"><button class="b" type="button" onClick="{{p.pick}}" style="border:1.5px solid #D8CEBF;background:#FFFFFF;border-radius:999px;padding:0 12px;min-height:36px;font-weight:600;font-size:12.5px">{{p.label}}</button></sc-for>
+<button class="b" type="button" onClick="{{clear}}" style="color:#8A7F7C;font-weight:600;font-size:12.5px;min-height:36px;padding:0 8px">Clear</button>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+<div class="card" style="background:{{r.tint}};border:2px solid {{r.border}};border-radius:22px;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 8px;position:relative">
+<button class="b" type="button" onClick="{{r.plus}}" aria-label="{{r.plusAria}}" style="flex:0 0 auto;height:132px;display:flex;align-items:flex-end"><img class="btl" src="{{r.cut}}" alt="" style="height:128px;width:auto;filter:drop-shadow(0 10px 10px rgba(28,20,20,0.18))"></button>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+<span class="mono" style="font-size:10px;color:{{r.c}}">{{r.key}}</span>
+<span class="disp" style="font-size:20px">{{r.name}}</span>
+<span style="font-size:12.5px;color:#4E4446">{{r.fact}}</span>
+<div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+<button class="q" type="button" onClick="{{r.minus}}" aria-label="{{r.minusAria}}" style="border:1.5px solid #D8CEBF;background:#FFFFFF;color:#1C1414;opacity:{{r.minusOp}}">−</button>
+<span class="disp" style="font-size:24px;width:30px;text-align:center">{{r.qty}}</span>
+<button class="q" type="button" onClick="{{r.plus}}" aria-label="{{r.plusAria}}" style="border:none;background:{{r.plusBg}};color:#FFFFFF">+</button>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:10px"><span class="disp" style="font-size:26px;color:#C42E62">3</span><span class="disp" style="font-size:22px">{{step3Title}}</span></div>
+<sc-if value="{{isSub}}" hint-placeholder-val="{{true}}">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+<sc-for list="{{freqs}}" as="f" hint-placeholder-count="3"><button class="b tier" type="button" onClick="{{f.pick}}" aria-pressed="{{f.on}}" style="border-radius:18px;padding:10px;min-height:58px;background:{{f.bg}};color:{{f.fg}};border:2px solid {{f.border}};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px"><span style="font-weight:700;font-size:15px">{{f.label}}</span><span style="font-size:11.5px;opacity:0.75">{{f.note}}</span></button></sc-for>
+</div>
+<div style="font-size:13px;color:#5B5150;margin-top:10px">Free delivery · we message you 2–3 days before each delivery to confirm · pay by Whish or cash · skip or pause anytime</div>
+</sc-if>
+<sc-if value="{{isOnce}}" hint-placeholder-val="{{false}}">
+<div style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.5;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap"><span><b>Delivered once.</b> <span style="color:#5B5150">No subscription. Pay with Whish or cash on delivery.</span></span><button class="b" type="button" onClick="{{pickSub}}" style="color:#C42E62;font-weight:700;font-size:14px;min-height:40px">Subscribe instead and save {{subExtra}}% more →</button></div>
+</sc-if>
+</div>
+</div>
+
+<div style="flex:1 1 420px;min-width:0;position:sticky;top:92px;display:flex;flex-direction:column;gap:12px">
+<div class="{{boxCls}}" style="background:#C42E62;border-radius:28px;padding:14px 14px 16px;position:relative;transition:box-shadow .5s">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:2px 6px 10px;color:#FFFFFF">
+<img src="/assets/da6f4753838cc820e5bdab340ad18692.png" alt="UpWell" style="height:20px;width:auto">
+<span class="mono" style="font-size:11px;color:#FFD3DF">{{box.name}} · {{filledLabel}}</span>
+</div>
+<div style="background:#FBF0E6;border-radius:18px;padding:10px;display:grid;grid-template-columns:repeat({{box.cols}},minmax(0,1fr));gap:6px;box-shadow:inset 0 6px 16px rgba(110,74,82,0.18)">
+<sc-for list="{{slots}}" as="s" hint-placeholder-count="12">
+<div style="height:{{box.slotH}};border-radius:10px;background:{{s.bg}};border:1.5px dashed {{s.dash}};display:flex;align-items:flex-end;justify-content:center;overflow:hidden;position:relative">
+<sc-if value="{{s.filled}}" hint-placeholder-val="{{false}}"><img class="pop" src="{{s.img}}" alt="{{s.name}}" style="height:94%;width:auto;filter:drop-shadow(0 5px 5px rgba(28,20,20,0.18))"></sc-if>
+<sc-if value="{{s.empty}}" hint-placeholder-val="{{true}}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#D8C3B4;font-size:18px;font-weight:300">+</span></sc-if>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{isFull}}" hint-placeholder-val="{{false}}">
+<div class="ready" style="position:absolute;right:16px;top:-14px;background:#1C1414;color:#FBF7F0;border-radius:999px;padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 28px rgba(28,20,20,0.3);white-space:nowrap;font-weight:700;font-size:13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E9849F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>Box ready</div>
+</sc-if>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:24px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+<div>
+<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#8A7F7C;margin-bottom:8px"><span>YOUR DISCOUNT</span><span style="color:#C42E62">−{{discTotal}}%</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+<sc-for list="{{ladder}}" as="l" hint-placeholder-count="3"><button class="b" type="button" onClick="{{l.pick}}" style="border-radius:12px;padding:8px 6px;background:{{l.bg}};color:{{l.fg}};text-align:center;min-height:44px;transition:all .3s"><span class="disp" style="display:block;font-size:18px">−{{l.d}}%</span><span style="display:block;font-size:11px;margin-top:2px;opacity:0.8">{{l.size}} bottles</span></button></sc-for>
+</div>
+<div style="font-size:12.5px;color:#5B5150;margin-top:8px">{{nudge}}</div>
+</div>
+<div style="height:8px;border-radius:4px;background:#F3ECE1;overflow:hidden;display:flex">
+<sc-for list="{{bar}}" as="x" hint-placeholder-count="4"><div style="height:100%;width:{{x.w}};background:{{x.c}};transition:width .4s cubic-bezier(.2,.7,.2,1)"></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:14px;border-top:1px solid #EAE2D6;padding-top:12px">
+<div style="display:flex;justify-content:space-between"><span style="color:#5B5150">{{box.size}} bottles × {{base}}</span><span>{{fullPrice}}</span></div>
+<div style="display:flex;justify-content:space-between;color:#1F6E5A"><span>Box discount ({{box.size}} bottles)</span><span>−{{boxDisc}}%</span></div>
+<sc-if value="{{isSub}}" hint-placeholder-val="{{true}}"><div style="display:flex;justify-content:space-between;color:#1F6E5A"><span>Subscribe &amp; save</span><span>−{{subExtra}}%</span></div></sc-if>
+<div style="display:flex;justify-content:space-between"><span style="color:#5B5150">Delivery</span><span>{{delivery}}</span></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<span><span class="disp" style="font-size:34px">{{total}}</span><span style="font-size:13px;color:#5B5150;margin-left:6px">{{totalNote}}</span></span>
+<span style="text-align:right"><span style="display:block;font-weight:700;font-size:14px">{{perBottle}} / bottle</span><span style="display:block;font-size:12px;color:#1F6E5A;font-weight:700">You save {{saved}}</span></span>
+</div>
+<sc-if value="{{isFull}}" hint-placeholder-val="{{true}}">
+<a href="/cart" class="pill" style="background:#C42E62;color:#FFFFFF;text-align:center;text-decoration:none;font-weight:700;font-size:16px;padding:17px;border-radius:999px;display:flex;justify-content:center;gap:10px">{{ctaLabel}} <span>→</span></a>
+</sc-if>
+<sc-if value="{{notFull}}" hint-placeholder-val="{{false}}">
+<div style="background:#F3ECE1;color:#5B5150;text-align:center;font-weight:700;font-size:15px;padding:17px;border-radius:999px">{{remainingLabel}}</div>
+</sc-if>
+<div style="font-size:11.5px;color:#8A7F7C;text-align:center">Sample prices for the prototype · real prices to be confirmed</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background:#1C1414;color:#BDB2AF;padding:36px 0">
+<div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+<img src="/assets/da6f4753838cc820e5bdab340ad18692.png" alt="UpWell" style="height:34px;width:auto">
+<div style="font-size:13px">Twist · Tap · Shake · Glow · Pay with Whish or cash on delivery</div>
+</div>
+</footer>
+</div>
+</template>
+<script id="dc-logic" type="text/x-dc" data-props='{"basePrice":{"editor":"number","default":3},"disc6":{"editor":"number","default":5},"disc12":{"editor":"number","default":10},"disc24":{"editor":"number","default":15},"subExtra":{"editor":"number","default":5},"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { size: 12, freq: 4, buy: 'sub', q: { collagen: 6, chocolate: 2, raspberry: 0, matcha: 4 } };
+}
+renderVals() {
+const s = this.state;
+const pr = this.props;
+const base = Number(pr.basePrice ?? 3);
+const DISC = { 6: Number(pr.disc6 ?? 5), 12: Number(pr.disc12 ?? 10), 24: Number(pr.disc24 ?? 15) };
+const subExtra = Number(pr.subExtra ?? 5);
+const isSub = s.buy === 'sub';
+const money = (v) => '$' + v.toFixed(2);
+const ORDER = ['collagen', 'chocolate', 'raspberry', 'matcha'];
+const P = {
+collagen: { name: 'Collagen + Creatine', key: 'Glow · Morning', fact: '30 cal · 7g collagen · 3g creatine', c: '#C42E62', tint: '#FDE6E5', cut: '/assets/1e312cf70451d331518596eb690219f9.webp' },
+chocolate: { name: 'Chocolate Clear Whey', key: 'Recover · After workout', fact: '45 cal · 9g protein', c: '#7A4327', tint: '#F3E6DD', cut: '/assets/df1379f946c6783678c913de3b1653e9.webp' },
+raspberry: { name: 'Raspberry Protein+', key: 'Refresh · Intense training', fact: '45 cal · 9g plant protein', c: '#A61F4E', tint: '#FBE3EA', cut: '/assets/03165d99b540fc3ded3ff290b96b0d9a.webp' },
+matcha: { name: 'Coconut Matcha', key: 'Reset · Afternoon', fact: '35 cal · 0g sugar', c: '#0F7A6C', tint: '#E3EFDA', cut: '/assets/5d6a6bf7d30273993f2a59b1dade3aa2.webp' }
+};
+const total = ORDER.reduce((a, k) => a + s.q[k], 0);
+const full = total >= s.size;
+const fit = (q, size) => { const n = Object.assign({}, q); let t = ORDER.reduce((a, k) => a + n[k], 0); for (let i = ORDER.length - 1; i >= 0 && t > size; i--) { const k = ORDER.at(i); const c = Math.min(n[k], t - size); n[k] -= c; t -= c; } return n; };
+const T = [{ name: 'Explorer', size: 6 }, { name: 'Insider', size: 12 }, { name: 'Legend', size: 24 }];
+const setSize = (size) => this.setState({ size, q: fit(s.q, size) });
+const sizes = T.map((t) => { const on = s.size === t.size; return { name: t.name, size: t.size, disc: DISC[t.size] + (isSub ? subExtra : 0), on: on ? 'true' : 'false', bg: on ? '#1C1414' : '#FFFFFF', fg: on ? '#FBF7F0' : '#1C1414', border: on ? '#1C1414' : '#EAE2D6', shadow: on ? '0 14px 30px rgba(28,20,20,0.16)' : 'none', tagBg: on ? '#E9849F' : '#FDE6E5', tagFg: on ? '#1C1414' : '#C42E62', pick: () => setSize(t.size) }; });
+const rows = ORDER.map((k) => { const p = P[k]; const n = s.q[k];
+return { name: p.name, key: p.key, fact: p.fact, c: p.c, tint: p.tint, cut: p.cut, qty: n, border: n > 0 ? p.c : 'transparent', plusBg: full ? '#D8CEBF' : p.c, minusOp: n > 0 ? '1' : '0.4',
+minusAria: 'Remove one ' + p.name, plusAria: 'Add one ' + p.name,
+plus: () => { if (full) return; const q = Object.assign({}, s.q); q[k] = n + 1; this.setState({ q }); },
+minus: () => { if (n === 0) return; const q = Object.assign({}, s.q); q[k] = n - 1; this.setState({ q }); } }; });
+const share = (w) => { const q = {}; let left = s.size; ORDER.forEach((k, i) => { const v = i === ORDER.length - 1 ? left : Math.round(s.size * w.at(i)); q[k] = Math.max(0, Math.min(v, left)); left -= q[k]; }); return q; };
+const presets = [['Even mix', [0.25, 0.25, 0.25, 0.25]], ['Morning to workout', [0.5, 0.25, 0, 0.25]], ['Training heavy', [0.25, 0.375, 0.375, 0]]].map(([label, w]) => ({ label, pick: () => this.setState({ q: share(w) }) }));
+const freqs = [[2, 'Daily drinkers'], [4, 'Most popular'], [6, 'Lighter routine']].map(([f, note]) => { const on = s.freq === f; return { label: 'Every ' + f + ' weeks', note, on: on ? 'true' : 'false', bg: on ? '#1C1414' : '#FFFFFF', fg: on ? '#FBF7F0' : '#1C1414', border: on ? '#1C1414' : '#EAE2D6', pick: () => this.setState({ freq: f }) }; });
+const LAY = { 6: { cols: 6, slotH: '116px' }, 12: { cols: 6, slotH: '100px' }, 24: { cols: 8, slotH: '76px' } };
+const slots = [];
+ORDER.forEach((k) => { for (let i = 0; i < s.q[k]; i++) slots.push({ filled: true, empty: false, img: P[k].cut, name: P[k].name, bg: P[k].tint, dash: 'transparent' }); });
+while (slots.length < s.size) slots.push({ filled: false, empty: true, img: '', name: '', bg: 'rgba(255,255,255,0.6)', dash: '#E2CDBE' });
+const bar = ORDER.map((k) => ({ w: (s.q[k] / s.size * 100) + '%', c: P[k].c }));
+const tier = T.filter((t) => t.size === s.size)[0];
+const boxDisc = DISC[s.size];
+const discTotal = boxDisc + (isSub ? subExtra : 0);
+const fullPrice = base * s.size;
+const totalPrice = fullPrice * (1 - discTotal / 100);
+const ladder = T.map((t) => { const on = t.size === s.size; return { size: t.size, d: DISC[t.size] + (isSub ? subExtra : 0), bg: on ? '#C42E62' : '#F3ECE1', fg: on ? '#FFFFFF' : '#5B5150', pick: () => setSize(t.size) }; });
+const next = T.filter((t) => t.size > s.size)[0];
+const nudge = next ? 'Go ' + next.size + ' bottles (' + next.name + ') to save ' + (DISC[next.size] + (isSub ? subExtra : 0)) + '%.' : 'You’re on the best price per bottle.';
+const left = s.size - total;
+return {
+sizes, rows, presets, freqs, slots, bar, ladder, nudge,
+box: { name: tier.name, size: s.size, cols: LAY[s.size].cols, slotH: LAY[s.size].slotH },
+boxCls: full ? 'shine' : '',
+filledLabel: total + '/' + s.size,
+isFull: full, notFull: !full, remainingLabel: 'Add ' + left + ' more bottle' + (left === 1 ? '' : 's'),
+isSub, isOnce: !isSub, subOn: isSub ? 'true' : 'false', onceOn: isSub ? 'false' : 'true', subExtra,
+subBg: isSub ? '#1C1414' : 'transparent', subFg: isSub ? '#FBF7F0' : '#1C1414', onceBg: !isSub ? '#1C1414' : 'transparent', onceFg: !isSub ? '#FBF7F0' : '#1C1414',
+pickSub: () => this.setState({ buy: 'sub' }), pickOnce: () => this.setState({ buy: 'once' }),
+step3Title: isSub ? 'Delivery every' : 'One-time delivery',
+base: money(base), fullPrice: money(fullPrice), boxDisc, discTotal,
+delivery: isSub ? 'Free' : 'At checkout',
+total: money(totalPrice), totalNote: isSub ? 'every ' + s.freq + ' weeks' : 'one time',
+perBottle: money(totalPrice / s.size), saved: money(fullPrice - totalPrice),
+ctaLabel: isSub ? 'Subscribe to my ' + tier.name + ' box' : 'Add my ' + tier.name + ' box to cart',
+clear: () => this.setState({ q: { collagen: 0, chocolate: 0, raspberry: 0, matcha: 0 } })
+};
+}
+}
+</script>
+<script src="/js/morphdom.min.js"></script>
+<script src="/js/runtime.js"></script>
+</body>
+</html>

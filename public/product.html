@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="UpWell — functional drinks with a smart cap. Design preview.">
+<meta name="theme-color" content="#C42E62">
+<title>UpWell — The drinks</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<script>(function(){var m=location.search.match(/view=(desktop|mobile)/);try{if(m)sessionStorage.setItem('uw-view',m[1]);var p=sessionStorage.getItem('uw-view');}catch(e){}var small=window.matchMedia('(max-width: 760px)').matches;var want=p?p==='mobile':small;if(want!==false){location.replace('/m/product'+location.hash);}})();</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+body{margin:0;background:#FBF7F0}
+a{color:#1C1414}a:hover{color:#C42E62}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:0.95}
+.nav-links{display:flex;gap:32px}
+.b{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
+.opt{font:inherit;cursor:pointer;background:#FFFFFF;color:#1C1414;border-radius:18px;padding:16px;text-align:left;min-height:44px}
+details summary{cursor:pointer;list-style:none}
+details summary::-webkit-details-marker{display:none}
+@media (max-width:760px){.nav-links{display:none}.ptitle{font-size:56px !important}}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+<div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh;padding-bottom:90px">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px">
+<div style="display:flex;align-items:center;gap:40px">
+<a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:28px;width:auto;display:block"></a>
+<nav class="nav-links" aria-label="Main">
+<a href="/box" style="text-decoration:none;font-weight:500;font-size:16px">Build your box</a>
+<a href="/#drinks" style="text-decoration:none;font-weight:700;font-size:16px;color:#C42E62">Drinks</a>
+<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:16px">Ingredients</a>
+<a href="/#app" style="text-decoration:none;font-weight:500;font-size:16px">App</a>
+</nav>
+</div>
+<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+</a>
+</div>
+</header>
+
+<div class="wrap" style="padding-top:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+<button class="b" type="button" onClick="{{t.pick}}" style="border-radius:999px;padding:0 16px;min-height:44px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;background:{{t.bg}};color:{{t.fg}};border:1.5px solid {{t.border}}"><span style="width:10px;height:10px;border-radius:50%;background:{{t.dot}}"></span>{{t.name}}</button>
+</sc-for>
+</div>
+
+<section style="padding:24px 0 72px">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+<div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<div style="background:{{p.bg}};border-radius:32px;overflow:hidden;aspect-ratio:1 / 1;position:relative">
+<sc-for list="{{gal}}" as="g" hint-placeholder-count="3"><img src="{{g.img}}" alt="{{g.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{g.pos}};opacity:{{g.op}};transform:{{g.tf}};transition:opacity .6s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)"></sc-for>
+<sc-if value="{{showVideo}}" hint-placeholder-val="{{false}}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#1C1414;color:#FBF7F0"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#FBF7F0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg><div class="disp" style="font-size:32px">Twist · Tap · Shake</div><div style="font-size:14px;color:#BDB2AF">[Footage: the cap being twisted, tapped and mixed]</div></div></sc-if>
+<div class="mono" style="position:absolute;left:18px;top:18px;background:rgba(255,255,255,0.92);color:#1C1414;font-family:'IBM Plex Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:11px;padding:7px 12px;border-radius:999px">{{p.moment}}</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+<sc-for list="{{thumbs}}" as="g" hint-placeholder-count="4">
+<button class="b" type="button" onClick="{{g.pick}}" aria-label="{{g.label}}" style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:{{g.bg}};border:2px solid {{g.border}};display:flex;align-items:center;justify-content:center;color:{{g.fg}};font-size:11px;font-weight:700;text-align:center;padding:0">
+<sc-if value="{{g.hasImg}}" hint-placeholder-val="{{true}}"><img src="{{g.img}}" alt="" style="width:100%;height:100%;object-fit:{{g.fit}};display:block"></sc-if>
+<sc-if value="{{g.noImg}}" hint-placeholder-val="{{false}}"><span style="padding:6px">{{g.label}}</span></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="flex:1 1 440px;min-width:0;position:sticky;top:92px">
+<div style="font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:{{p.color}};margin-bottom:12px">{{p.moment}}</div>
+<h1 class="disp ptitle" style="font-size:76px;margin:0 0 14px">{{p.name}}</h1>
+<p style="font-size:24px;line-height:1.35;font-weight:600;margin:0 0 14px">{{p.emotion}}</p>
+<p style="font-size:16px;line-height:1.6;color:#5B5150;margin:0 0 20px">{{p.desc}}</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">
+<sc-for list="{{p.facts}}" as="f" hint-placeholder-count="4"><span style="background:{{p.tint}};color:#1C1414;border-radius:999px;padding:9px 14px;font-weight:700;font-size:13px">{{f}}</span></sc-for>
+</div>
+
+<div style="background:#FFFFFF;border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:16px;border:1px solid #EAE2D6;box-shadow:0 20px 50px rgba(28,20,20,0.06)">
+<div style="display:flex;background:#F3ECE1;border-radius:999px;padding:4px">
+<button class="b" type="button" onClick="{{pickBox}}" style="flex:1;border-radius:999px;min-height:44px;font-weight:700;font-size:14px;background:{{boxBg}};color:{{boxFg}}">Subscribe &amp; save</button>
+<button class="b" type="button" onClick="{{pickOnce}}" style="flex:1;border-radius:999px;min-height:44px;font-weight:700;font-size:14px;background:{{onceBg}};color:{{onceFg}}">One-time purchase</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{tiers}}" as="t" hint-placeholder-count="3">
+<button class="opt" type="button" onClick="{{t.pick}}" style="border:2px solid {{t.border}};background:{{t.bg}};display:flex;align-items:center;gap:14px">
+<span style="width:22px;height:22px;border-radius:50%;border:2px solid {{t.border}};display:flex;align-items:center;justify-content:center;flex:0 0 auto"><span style="width:11px;height:11px;border-radius:50%;background:{{t.dot}}"></span></span>
+<span style="flex:1"><span style="display:block;font-weight:700;font-size:16px">UpWell {{t.name}} · {{t.size}} bottles</span><span style="display:block;font-size:13px;color:#5B5150;margin-top:2px">{{t.note}}</span></span>
+<span style="font-size:11px;font-weight:700;background:{{p.tint}};color:{{p.color}};padding:6px 10px;border-radius:999px;white-space:nowrap">−{{t.disc}}%</span>
+</button>
+</sc-for>
+<div style="font-size:13px;color:#5B5150;line-height:1.5">{{buyNote}}</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #EAE2D6;padding-top:14px"><span><span class="disp" style="font-size:36px">{{perBottle}}</span><span style="font-size:14px;color:#5B5150;margin-left:6px">per bottle</span> <span style="font-size:14px;color:#8A7F7C;text-decoration:line-through;margin-left:4px">{{basePrice}}</span></span><span style="font-size:12px;color:#8A7F7C;text-align:right">Sample prices ·<br>to be confirmed</span></div>
+<a href="{{ctaHref}}" style="background:{{p.color}};color:#FFFFFF;text-align:center;text-decoration:none;font-weight:700;font-size:17px;padding:19px;border-radius:999px">{{ctaLabel}}</a>
+<div style="display:flex;justify-content:center;gap:16px;font-size:13px;color:#5B5150;flex-wrap:wrap"><span>Whish</span><span>·</span><span>Cash on delivery</span><span>·</span><span>Delivery across Lebanon</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#1C1414;color:#FBF7F0;padding:72px 0">
+<div class="wrap">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px"><h2 class="disp" style="font-size:64px;margin:0">Twist. Tap. Shake. Glow.</h2><span style="color:#BDB2AF;font-size:16px">Fresh in ten seconds.</span></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+<div style="background:#2A2020;border-radius:22px;padding:22px;border-top:4px solid {{p.color}}"><div class="disp" style="font-size:40px;color:{{p.accent}}">01 Twist</div><div style="font-size:14px;color:#BDB2AF;margin-top:10px;line-height:1.5">Hold the band and twist the cap counter-clockwise.</div></div>
+<div style="background:#2A2020;border-radius:22px;padding:22px"><div class="disp" style="font-size:40px;color:{{p.accent}}">02 Tap</div><div style="font-size:14px;color:#BDB2AF;margin-top:10px;line-height:1.5">Tap the cap firmly. The ingredients drop in.</div></div>
+<div style="background:#2A2020;border-radius:22px;padding:22px"><div class="disp" style="font-size:40px;color:{{p.accent}}">03 Shake</div><div style="font-size:14px;color:#BDB2AF;margin-top:10px;line-height:1.5">A few seconds. No scoop, no shaker.</div></div>
+<div style="background:{{p.color}};border-radius:22px;padding:22px"><div class="disp" style="font-size:40px">04 Glow</div><div style="font-size:14px;margin-top:10px;line-height:1.5;opacity:0.9">Freshly mixed. Drink it anywhere.</div></div>
+</div>
+</div>
+</section>
+
+<section style="padding:80px 0">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px">
+<div style="flex:1 1 440px;min-width:0">
+<div style="font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:{{p.color}};margin-bottom:14px">What's inside</div>
+<h2 class="disp" style="font-size:56px;margin:0 0 28px">Short label.<br>Real doses.</h2>
+<sc-for list="{{p.ingredients}}" as="i" hint-placeholder-count="3">
+<details style="border-bottom:1px solid #EAE2D6;padding:20px 0"><summary style="display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:19px"><span>{{i.name}}</span><span style="color:{{p.color}}">{{i.dose}}</span></summary><p style="color:#5B5150;line-height:1.65;font-size:16px;margin:12px 0 0">{{i.note}}</p></details>
+</sc-for>
+<p style="font-size:13px;color:#8A7F7C;margin-top:18px">Full label: {{p.extras}} · 230 ml</p>
+</div>
+<div style="flex:1 1 380px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start">
+<div style="grid-column:1 / -1;border-radius:24px;overflow:hidden;aspect-ratio:16/10;background:{{p.bg}}"><img src="{{p.scene2}}" alt="{{p.name}} with its ingredients" style="width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block"></div>
+<div style="border-radius:20px;aspect-ratio:1/1;overflow:hidden;background:{{p.tint}};position:relative"><img src="{{p.ing}}" alt="{{p.ingAlt}}" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,0.92);font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px">{{p.ingAlt}}</span></div>
+<div style="border-radius:20px;aspect-ratio:1/1;overflow:hidden;background:#F3ECE1"><img src="{{p.life}}" alt="{{p.name}}, {{p.shot}}" style="width:100%;height:100%;object-fit:cover;object-position:{{p.lifePos}};display:block"></div>
+</div>
+</div>
+</section>
+
+<section style="padding:0 0 88px">
+<div class="wrap">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px"><h2 class="disp" style="font-size:52px;margin:0">Complete your box</h2><a href="/box" style="font-weight:700">Build your box →</a></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+<sc-for list="{{others}}" as="o" hint-placeholder-count="3">
+<button class="b" type="button" onClick="{{o.pick}}" style="text-align:left;background:{{o.bg}};color:{{o.fg}};border-radius:26px;overflow:hidden;display:flex;align-items:center">
+<img src="{{o.bottle}}" alt="" style="height:220px;width:auto;display:block">
+<span style="padding:20px 20px 20px 4px"><span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.85">{{o.moment}}</span><span class="disp" style="display:block;font-size:28px;margin-top:6px">{{o.name}}</span><span style="display:block;font-weight:700;font-size:14px;margin-top:14px">View →</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<div style="position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-top:1px solid #EAE2D6;z-index:25">
+<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px">
+<div style="display:flex;align-items:center;gap:12px;min-width:0"><img src="{{p.bottle}}" alt="" style="height:56px;width:auto;border-radius:8px;background:{{p.bg}}"><div style="min-width:0"><div class="disp" style="font-size:20px">{{p.name}}</div><div style="font-size:13px;color:#5B5150">{{barLine}}</div></div></div>
+<a href="{{ctaHref}}" style="background:{{p.color}};color:#FFFFFF;text-decoration:none;font-weight:700;padding:15px 26px;border-radius:999px;white-space:nowrap">{{ctaLabel}}</a>
+</div>
+</div>
+</div>
+</template>
+<script id="dc-logic" type="text/x-dc" data-props='{"basePrice":{"editor":"number","default":3},"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { id: 'collagen', img: 0, mode: 'box', tier: 12 };
+}
+renderVals() {
+const s = this.state;
+const P = {
+collagen: { name: 'Collagen + Creatine', moment: '01 · Your morning ritual', emotion: 'Your daily beauty & strength ritual, made effortless.', desc: '7g hydrolyzed collagen and 3g creatine, with hyaluronic acid and vitamin C, kept fresh in the cap until you twist.', shot: 'morning routine, getting ready', color: '#C42E62', accent: '#E9849F', tint: '#FDE6E5', bg: '#FDE6E5', fg: '#1C1414', bottle: '/assets/1e312cf70451d331518596eb690219f9.webp',
+imgs: [['/assets/0fe6caf0e2b5b9ef79e679553d4f7955.webp', 'With fresh berries', '50% 50%'], ['/assets/50914b7556a6f3a5017551ba07718969.webp', 'Morning Pilates', '50% 50%'], ['/assets/a1eb70b36a8e9bf1c2b00c227a10adb1.webp', 'Studio', '50% 50%']], scene2: '/assets/0fe6caf0e2b5b9ef79e679553d4f7955.webp', ing: '/assets/ee62f1aebd543b544b10ad6e5038c038.webp', ingAlt: 'Collagen peptides', life: '/assets/50914b7556a6f3a5017551ba07718969.webp', lifePos: '45% 50%',
+facts: ['30 calories', '7g collagen', '3g creatine', '0g sugar', 'Gluten & lactose free'],
+ingredients: [{ name: 'Hydrolyzed collagen peptides', dose: '7g', note: 'The structural protein in skin, hair and nails.' }, { name: 'Creatine', dose: '3g', note: 'One of the most researched supplements for strength and performance.' }, { name: 'Hyaluronic acid + vitamin C', dose: '—', note: 'Vitamin C supports normal collagen formation.' }], extras: 'Hyaluronic acid · Vitamin C · Collagen peptides' },
+chocolate: { name: 'Chocolate Clear Whey', moment: '02 · After your workout', emotion: 'Post-workout recovery, without the heavy shake.', desc: '9g of premium imported clear whey with BCAAs, EAAs and digestive enzymes. Light, easy to digest, zero added sugar.', shot: 'post-workout at the gym', color: '#7A4327', accent: '#E6C3A9', tint: '#F3E6DD', bg: '#120504', fg: '#FBF7F0', bottle: '/assets/df1379f946c6783678c913de3b1653e9.webp',
+imgs: [['/assets/9993932b428a419fe401776856f6916b.webp', 'With cocoa', '50% 50%'], ['/assets/f67fa82670b93d5138b5176d3e684d78.webp', 'After the gym', '50% 40%'], ['/assets/91d1fd525ea08ab3e89ea8713784a8b2.webp', 'Studio', '50% 50%']], scene2: '/assets/9993932b428a419fe401776856f6916b.webp', ing: '/assets/50667c155defffd163d79e988230f558.webp', ingAlt: 'Clear whey', life: '/assets/f67fa82670b93d5138b5176d3e684d78.webp', lifePos: '50% 35%',
+facts: ['45 calories', '9g protein', '0g added sugar', 'Easy to digest', 'No palm oil'],
+ingredients: [{ name: 'Clear whey protein', dose: '9g', note: 'Imported whey in a light, clear format instead of a heavy shake.' }, { name: 'BCAAs + EAAs', dose: '1.8g · 3.8g', note: 'Amino acids that support muscle recovery.' }, { name: 'Digestive enzymes', dose: '—', note: 'Added to make it easy to digest.' }], extras: 'Taurine · L-Glutamine · L-Arginine · Digestive enzymes' },
+raspberry: { name: 'Raspberry Protein+', moment: '03 · After an intense workout', emotion: 'Your refresh after the hardest sessions.', desc: '9g of organic pea protein with an electrolytes blend, biotin and vitamin C. Dairy free, no preservatives.', shot: 'after a sweaty class', color: '#A61F4E', accent: '#F6A9BF', tint: '#FBE3EA', bg: '#B42D5A', fg: '#FFFFFF', bottle: '/assets/03165d99b540fc3ded3ff290b96b0d9a.webp',
+imgs: [['/assets/552d2a94be646317865928bd600dd265.webp', 'Studio', '50% 50%'], ['/assets/43aad4fb3324dd2647a7d6d79d848a6a.webp', 'After the run', '50% 35%'], ['/assets/0289f17579e027f6e9e3da68fd4c90f0.webp', 'Splash', '50% 50%']], scene2: '/assets/0289f17579e027f6e9e3da68fd4c90f0.webp', ing: '/assets/8598af15a952f595c32c5cddfad1782e.webp', ingAlt: 'Organic pea protein', life: '/assets/43aad4fb3324dd2647a7d6d79d848a6a.webp', lifePos: '50% 30%',
+facts: ['45 calories', '9g plant protein', '0g sugar', 'Electrolytes', 'Dairy free'],
+ingredients: [{ name: 'Organic pea protein', dose: '9g', note: 'Plant-based protein for active days, without dairy.' }, { name: 'Electrolytes blend', dose: '—', note: 'Potassium and magnesium to help you rehydrate after training.' }, { name: 'Biotin + vitamin C', dose: '—', note: 'Supporting vitamins listed on the label.' }], extras: 'Vitamin C · Biotin · Potassium · Magnesium' },
+matcha: { name: 'Coconut Matcha', moment: '04 · Your afternoon reset', emotion: 'Your afternoon reset, minus the crash.', desc: 'Premium matcha with L-theanine, creamy organic coconut milk and MCTs. Zero sugar and just 35 calories.', shot: 'afternoon at the office', color: '#0F7A6C', accent: '#9ED6C8', tint: '#E3EFDA', bg: '#D2E0B4', fg: '#12302A', bottle: '/assets/5d6a6bf7d30273993f2a59b1dade3aa2.webp',
+imgs: [['/assets/f7ee937067f3e9c0bdd7a1589f332dac.webp', 'With coconut and matcha', '50% 50%'], ['/assets/431c04fb8489a0c8f6695c1043e3575c.webp', 'Afternoon at the office', '30% 50%'], ['/assets/de5a8b59355c4463590d8aef8b5e5fdc.webp', 'Studio', '50% 50%']], scene2: '/assets/f7ee937067f3e9c0bdd7a1589f332dac.webp', ing: '/assets/47d09028a84a37fed1809caec01027d5.webp', ingAlt: 'Matcha', life: '/assets/431c04fb8489a0c8f6695c1043e3575c.webp', lifePos: '30% 50%',
+facts: ['35 calories', '0g sugar', 'L-theanine', 'Dairy free', 'Naturally sweetened'],
+ingredients: [{ name: 'Natural matcha + L-theanine', dose: '—', note: 'Matcha for energy; L-theanine for a smoother, calmer lift.' }, { name: 'Organic coconut milk', dose: '—', note: 'Creamy and dairy free.' }, { name: 'Natural MCTs', dose: '—', note: 'Fats from coconut, often used as a quick energy source.' }], extras: 'Natural MCTs · L-Theanine · Organic matcha · Coconut milk' }
+};
+const ORDER = ['collagen', 'chocolate', 'raspberry', 'matcha'];
+const p = P[s.id];
+const tabs = ORDER.map((k) => ({ name: P[k].name, dot: P[k].color, bg: s.id === k ? '#1C1414' : 'transparent', fg: s.id === k ? '#FBF7F0' : '#1C1414', border: s.id === k ? '#1C1414' : '#D8CEBF', pick: () => this.setState({ id: k, img: 0 }) }));
+const gal = p.imgs.map(([img, alt, pos], i) => ({ img, alt: p.name + ' — ' + alt, pos, op: s.img === i ? '1' : '0', tf: s.img === i ? 'scale(1)' : 'scale(1.05)' }));
+const TH = p.imgs.map(([img, alt], i) => [i, alt, img, 'cover']).concat([[3, 'Twist · Tap · Shake video', '', '']]);
+const thumbs = TH.map(([k, label, img, fit]) => ({ label, img, fit, hasImg: !!img, noImg: !img, bg: k === 3 ? '#1C1414' : p.tint, fg: k === 3 ? '#FBF7F0' : '#5B5150', border: s.img === k ? '#1C1414' : 'transparent', pick: () => this.setState({ img: k }) }));
+const T = [[6, 'Explorer', 'A taste of each, or two favourites'], [12, 'Insider', 'A drink most days'], [24, 'Legend', 'Your full ritual, best price per bottle']];
+const isBox = s.mode === 'box';
+const DISC = { 6: 5, 12: 10, 24: 15 };
+const base = Number(this.props.basePrice ?? 3);
+const dOf = (size) => DISC[size] + (isBox ? 5 : 0);
+const tiers = T.map(([size, name, note]) => { const on = s.tier === size; return { size, name, note, disc: dOf(size), border: on ? p.color : '#EAE2D6', bg: on ? p.tint : '#FFFFFF', dot: on ? p.color : 'transparent', pick: () => this.setState({ tier: size }) }; });
+const tierName = T.filter((t) => t[0] === s.tier)[0][1];
+const others = ORDER.filter((k) => k !== s.id).map((k) => ({ name: P[k].name, moment: P[k].moment, bg: P[k].bg, fg: P[k].fg, bottle: P[k].bottle, pick: () => this.setState({ id: k, img: 0 }) }));
+return {
+p, tabs, thumbs, tiers, others, gal,
+showVideo: s.img === 3,
+isBox, isOnce: !isBox,
+boxBg: isBox ? '#1C1414' : 'transparent', boxFg: isBox ? '#FBF7F0' : '#1C1414', onceBg: !isBox ? '#1C1414' : 'transparent', onceFg: !isBox ? '#FBF7F0' : '#1C1414',
+pickBox: () => this.setState({ mode: 'box' }), pickOnce: () => this.setState({ mode: 'once' }),
+perBottle: '$' + (base * (1 - dOf(s.tier) / 100)).toFixed(2), basePrice: '$' + base.toFixed(2),
+buyNote: isBox ? 'Start with ' + p.name + ' and mix in any drink in the next step. Extra 5% off, free delivery, skip or pause anytime.' : 'Any box, any mix, delivered once. No subscription. Subscribe instead for an extra 5% off.',
+ctaLabel: isBox ? 'Build my ' + tierName + ' box' : 'Build my one-time ' + tierName + ' box', ctaHref: '/box',
+barLine: 'UpWell ' + tierName + ' · ' + s.tier + ' bottles · ' + (isBox ? 'subscribe & save ' : 'one-time · save ') + dOf(s.tier) + '%'
+};
+}
+}
+</script>
+<script src="/js/morphdom.min.js"></script>
+<script src="/js/runtime.js"></script>
+</body>
+</html>
