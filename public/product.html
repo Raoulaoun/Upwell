@@ -13,9 +13,9 @@
 <style>
 body{margin:0;background:#FBF7F0}
 a{color:#1C1414}a:hover{color:#C42E62}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
 .disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:0.95}
-.nav-links{display:flex;gap:32px}
+.nav-links{display:flex;gap:34px}
 .b{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
 .opt{font:inherit;cursor:pointer;background:#FFFFFF;color:#1C1414;border-radius:18px;padding:16px;text-align:left;min-height:44px}
 details summary{cursor:pointer;list-style:none}
@@ -28,20 +28,22 @@ details summary::-webkit-details-marker{display:none}
 <template id="dc-template">
 <div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh;padding-bottom:90px">
 
-<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
-<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px">
-<div style="display:flex;align-items:center;gap:40px">
-<a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:28px;width:auto;display:block"></a>
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px">
+<div style="display:flex;align-items:center;gap:44px">
+<a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:30px;width:auto;display:block"></a>
 <nav class="nav-links" aria-label="Main">
-<a href="/box" style="text-decoration:none;font-weight:500;font-size:16px">Build your box</a>
-<a href="/#drinks" style="text-decoration:none;font-weight:700;font-size:16px;color:#C42E62">Drinks</a>
-<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:16px">Ingredients</a>
-<a href="/#app" style="text-decoration:none;font-weight:500;font-size:16px">App</a>
+<a href="/#drinks" style="text-decoration:none;font-weight:600;font-size:17px;color:#C42E62">Our drinks</a>
+<a href="/#why" style="text-decoration:none;font-weight:500;font-size:17px;">Why UpWell</a>
+<a href="/box" style="text-decoration:none;font-weight:500;font-size:17px;">Build your box</a>
+<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:17px;">Ingredients</a>
+<a href="/#app" style="text-decoration:none;font-weight:500;font-size:17px;">App</a>
 </nav>
 </div>
-<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-</a>
+<div style="display:flex;align-items:center;gap:14px">
+<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+<a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;font-size:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Sign in</a>
+</div>
 </div>
 </header>
 

@@ -43,18 +43,22 @@ a{color:#1C1414}a:hover{color:#C42E62}
 <template id="dc-template">
 <div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh">
 
-<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
 <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px">
 <div style="display:flex;align-items:center;gap:44px">
 <a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:30px;width:auto;display:block"></a>
 <nav class="nav-links" aria-label="Main">
+<a href="/#drinks" style="text-decoration:none;font-weight:500;font-size:17px;">Our drinks</a>
+<a href="/#why" style="text-decoration:none;font-weight:500;font-size:17px;">Why UpWell</a>
 <a href="/box" style="text-decoration:none;font-weight:600;font-size:17px;color:#C42E62">Build your box</a>
-<a href="/#drinks" style="text-decoration:none;font-weight:500;font-size:17px">Drinks</a>
-<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:17px">Ingredients</a>
-<a href="/#app" style="text-decoration:none;font-weight:500;font-size:17px">App</a>
+<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:17px;">Ingredients</a>
+<a href="/#app" style="text-decoration:none;font-weight:500;font-size:17px;">App</a>
 </nav>
 </div>
-<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+<div style="display:flex;align-items:center;gap:14px">
+<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+<a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;font-size:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Sign in</a>
+</div>
 </div>
 </header>
 

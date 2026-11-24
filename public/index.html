@@ -70,43 +70,38 @@ details summary::-webkit-details-marker{display:none}
 <template id="dc-template">
 <div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh">
 
-<div style="background:#2B0A18;color:#FBF7F0;overflow:hidden;height:40px;display:flex;align-items:center">
-<div class="marquee mono" style="font-size:12px;gap:0">
-<sc-for list="{{ticker}}" as="t" hint-placeholder-count="16"><span style="display:flex;align-items:center;gap:14px;padding:0 22px;border-right:1px solid #5A2B3E;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#E9849F"></span>{{t}}</span></sc-for>
-</div>
-</div>
-
-<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
 <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px">
 <div style="display:flex;align-items:center;gap:44px">
 <a href="/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:30px;width:auto;display:block"></a>
 <nav class="nav-links" aria-label="Main">
-<a href="/box" style="text-decoration:none;font-weight:500;font-size:17px">Build your box</a>
-<a href="#drinks" style="text-decoration:none;font-weight:500;font-size:17px">Drinks</a>
-<a href="#difference" style="text-decoration:none;font-weight:500;font-size:17px">Why UpWell</a>
-<a href="#ingredients" style="text-decoration:none;font-weight:500;font-size:17px">Ingredients</a>
-<a href="#app" style="text-decoration:none;font-weight:500;font-size:17px">App</a>
+<a href="/#drinks" style="text-decoration:none;font-weight:500;font-size:17px;">Our drinks</a>
+<a href="/#why" style="text-decoration:none;font-weight:500;font-size:17px;">Why UpWell</a>
+<a href="/box" style="text-decoration:none;font-weight:500;font-size:17px;">Build your box</a>
+<a href="/#ingredients" style="text-decoration:none;font-weight:500;font-size:17px;">Ingredients</a>
+<a href="/#app" style="text-decoration:none;font-weight:500;font-size:17px;">App</a>
 </nav>
 </div>
 <div style="display:flex;align-items:center;gap:14px">
-<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
-<a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;font-size:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Sign in</a>
+<a href="/cart" aria-label="Cart" style="display:flex;width:44px;height:44px;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></a>
+<a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;font-size:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Sign in</a>
 </div>
 </div>
 </header>
 
+
 <section class="bgfade" style="background:{{hero.bg}};color:{{hero.fg}};position:relative;overflow:hidden;transition:background-color 1.1s ease,color 1.1s ease">
-<div style="display:flex;flex-wrap:wrap;min-height:740px">
+<div style="display:flex;flex-wrap:wrap;min-height:max(560px, calc(100vh - 78px))">
 <div style="flex:1 1 520px;min-width:0;display:flex;align-items:center;position:relative;z-index:2">
-<div style="padding:60px max(28px, calc((100vw - 1280px) / 2 + 28px));padding-right:36px;max-width:640px">
-<div class="mono fade-up" style="font-size:12px;color:{{hero.accent}};margin-bottom:22px;transition:color 1.1s;display:flex;align-items:center;gap:10px"><span style="width:28px;height:2px;background:{{hero.accent}};transition:background-color 1.1s"></span>{{hero.moment}}</div>
-<h1 class="disp h1 fade-up d1" style="font-size:104px;margin:0 0 24px">Wellness<br>evolved.<br><span style="color:{{hero.accent}};transition:color 1.1s">Your drink</span><br>should too.</h1>
-<p class="fade-up d2" style="font-size:19px;line-height:1.55;margin:0 0 30px;max-width:480px;opacity:0.86">Real functional ingredients sealed in the cap, away from the water, until the moment you twist. Freshly mixed every time — no scoop, no shaker.</p>
+<div style="padding:32px max(28px, calc((100vw - 1280px) / 2 + 28px));padding-right:36px;max-width:620px">
+<div class="mono fade-up" style="font-size:12px;color:{{hero.accent}};margin-bottom:16px;transition:color 1.1s;display:flex;align-items:center;gap:10px"><span style="width:28px;height:2px;background:{{hero.accent}};transition:background-color 1.1s"></span>{{hero.moment}}</div>
+<h1 class="disp h1 fade-up d1" style="font-size:min(80px, 5.4vw, 8.4vh);margin:0 0 18px">Wellness<br>evolved.<br><span style="color:{{hero.accent}};transition:color 1.1s">Your drink</span><br>should too.</h1>
+<p class="fade-up d2" style="font-size:17px;line-height:1.5;margin:0 0 24px;max-width:480px;opacity:0.86">Real functional ingredients sealed in the cap, away from the water, until the moment you twist. Freshly mixed every time — no scoop, no shaker.</p>
 <div class="fade-up d3" style="display:flex;gap:12px;flex-wrap:wrap">
 <a href="/box" class="pill" style="background:{{hero.btnBg}};color:{{hero.btnFg}};text-decoration:none;font-weight:600;font-size:17px;padding:19px 34px;border-radius:999px;display:flex;align-items:center;gap:10px;transition:background-color 1.1s,color 1.1s">Build your box <span>→</span></a>
 <a href="#how" style="color:{{hero.fg}};text-decoration:none;font-weight:600;font-size:17px;padding:17px 30px;border-radius:999px;border:1.5px solid {{hero.fg}};transition:color 1.1s,border-color 1.1s">See how it works</a>
 </div>
-<div class="fade-up d4" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:40px">
+<div class="fade-up d4" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:26px">
 <sc-for list="{{heroThumbs}}" as="t" hint-placeholder-count="4">
 <button class="b" type="button" onClick="{{t.pick}}" aria-label="Show {{t.name}}" aria-pressed="{{t.on}}" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:8px;background:{{t.bg}};color:#1C1414;border-radius:14px;padding:5px 14px 5px 6px;min-height:54px;box-shadow:{{t.sh}};transition:background-color .4s,box-shadow .4s">
 <img src="{{t.img}}" alt="" style="height:44px;width:auto;display:block">
@@ -117,8 +112,8 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </div>
 </div>
-<div class="hero-img" style="flex:1 1 560px;min-width:0;display:flex;align-items:center;justify-content:center;padding:44px max(28px, calc((100vw - 1280px) / 2 + 28px)) 44px 28px">
-<div style="position:relative;width:100%;max-width:640px;aspect-ratio:1 / 1">
+<div class="hero-img" style="flex:1 1 560px;min-width:0;display:flex;align-items:center;justify-content:center;padding:28px max(28px, calc((100vw - 1280px) / 2 + 28px)) 28px 28px">
+<div style="position:relative;width:100%;max-width:min(600px, calc(100vh - 150px));aspect-ratio:1 / 1">
 <div style="position:absolute;inset:0;border-radius:36px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,0.28);background:{{hero.bg}}">
 <sc-for list="{{heroScenes}}" as="h" hint-placeholder-count="4">
 <img class="scene" src="{{h.img}}" alt="{{h.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{h.op}};transform:{{h.tf}};transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)">
@@ -132,44 +127,12 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </section>
 
-<section style="background:#FFFFFF;border-top:1px solid #EFE7DB;border-bottom:1px solid #EFE7DB">
-<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0">
-<div style="padding:26px 20px;display:flex;gap:14px;align-items:center;border-right:1px solid #EFE7DB"><span class="disp" style="font-size:34px;color:#C42E62">&lt;50</span><span style="font-size:14px;line-height:1.35">calories in<br>every bottle</span></div>
-<div style="padding:26px 20px;display:flex;gap:14px;align-items:center;border-right:1px solid #EFE7DB"><span class="disp" style="font-size:34px;color:#C42E62">0G</span><span style="font-size:14px;line-height:1.35">sugar across<br>the range</span></div>
-<div style="padding:26px 20px;display:flex;gap:14px;align-items:center;border-right:1px solid #EFE7DB"><span class="disp" style="font-size:34px;color:#C42E62">1–3</span><span style="font-size:14px;line-height:1.35">core ingredients,<br>real doses</span></div>
-<div style="padding:26px 20px;display:flex;gap:14px;align-items:center"><span class="disp" style="font-size:34px;color:#C42E62">10s</span><span style="font-size:14px;line-height:1.35">from sealed<br>to freshly mixed</span></div>
-</div>
-</section>
-
-<section id="moments" style="padding:110px 0;background:#FBF7F0">
-<div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
-<div style="flex:1 1 420px;min-width:0">
-<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:16px">Your day, upgraded</div>
-<h2 style="font-size:58px;font-weight:500;letter-spacing:-0.02em;line-height:1.02;margin:0 0 16px">Built for however<br>you move.</h2>
-<p style="font-size:18px;line-height:1.55;margin:0 0 30px;color:#5B5150;max-width:460px">Four drinks, four moments, one word each. Pick yours and see where UpWell fits in.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<sc-for list="{{moments}}" as="m" hint-placeholder-count="4">
-<button class="b mo" type="button" onClick="{{m.pick}}" aria-pressed="{{m.on}}" style="width:100%;text-align:left;display:flex;gap:16px;align-items:center;padding:16px 20px;border-radius:22px;background:{{m.bg}};border:1.5px solid {{m.border}}">
-<img src="{{m.cut}}" alt="" style="height:58px;width:auto;flex:0 0 auto">
-<span style="flex:1;min-width:0"><span class="mono" style="display:block;font-size:10.5px;color:#8A7F7C">{{m.time}}</span><span style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:6px"><span class="disp" style="font-size:30px;color:{{m.color}}">{{m.key}}</span><span style="font-weight:600;font-size:17px">{{m.title}}</span></span><span style="display:block;font-size:14px;color:#5B5150;margin-top:3px">{{m.drink}}</span></span>
-<span aria-hidden="true" style="width:38px;height:38px;border-radius:50%;background:{{m.dot}};color:{{m.dotFg}};display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto;transition:all .35s">→</span>
-</button>
-</sc-for>
-</div>
-<div style="display:flex;gap:12px;align-items:center;margin-top:22px;font-size:15px;color:#5B5150"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C42E62" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Always on the go? No scoops, no shakers. Just twist.</div>
-</div>
-<div style="flex:1 1 540px;min-width:0">
-<div style="position:relative;aspect-ratio:1 / 1;border-radius:34px;overflow:hidden;background:#EDE5DA;box-shadow:0 40px 80px rgba(28,20,20,0.14)">
-<sc-for list="{{momentImgs}}" as="p" hint-placeholder-count="4">
-<img src="{{p.img}}" alt="{{p.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{p.pos}};opacity:{{p.op}};transform:{{p.tf}};transition:opacity .9s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)">
-</sc-for>
-<div class="disp" style="position:absolute;left:26px;top:22px;font-size:108px;color:#FFFFFF;text-shadow:0 4px 30px rgba(0,0,0,0.35);transition:opacity .4s">{{mo.key}}</div>
-<div style="position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:24px;padding:16px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-<span style="flex:1 1 220px;min-width:0"><span class="mono" style="display:block;font-size:10.5px;color:{{mo.color}}">{{mo.time}}</span><span style="display:block;font-weight:700;font-size:18px;margin-top:4px">{{mo.drink}}</span><span style="display:block;font-size:14px;color:#5B5150;margin-top:3px;line-height:1.4">{{mo.line}}</span></span>
-<a href="/box" class="pill" style="background:{{mo.color}};color:#FFFFFF;text-decoration:none;font-weight:600;font-size:15px;padding:14px 20px;border-radius:999px;white-space:nowrap">Add to my box</a>
-</div>
-</div>
-</div>
+<section id="why" style="background:#FFFFFF;border-bottom:1px solid #EFE7DB">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0">
+<div style="padding:30px 26px;border-right:1px solid #EFE7DB;display:flex;flex-direction:column;gap:12px"><div style="font-weight:700;font-size:17px;letter-spacing:-0.01em">Guilt-free</div><div style="display:flex;gap:14px;align-items:center"><span class="disp" style="font-size:44px;color:#C42E62">&lt;50<span style="text-transform:none"></span></span><span style="font-size:14px;line-height:1.35;color:#5B5150">calories in every bottle</span></div></div>
+<div style="padding:30px 26px;border-right:1px solid #EFE7DB;display:flex;flex-direction:column;gap:12px"><div style="font-weight:700;font-size:17px;letter-spacing:-0.01em">Nothing unnecessary</div><div style="display:flex;gap:14px;align-items:center"><span class="disp" style="font-size:44px;color:#C42E62">0<span style="text-transform:none">g</span></span><span style="font-size:14px;line-height:1.35;color:#5B5150">sugar across the range</span></div></div>
+<div style="padding:30px 26px;border-right:1px solid #EFE7DB;display:flex;flex-direction:column;gap:12px"><div style="font-weight:700;font-size:17px;letter-spacing:-0.01em">Premium product</div><div style="display:flex;gap:14px;align-items:center"><span class="disp" style="font-size:44px;color:#C42E62">1–3<span style="text-transform:none"></span></span><span style="font-size:14px;line-height:1.35;color:#5B5150">core ingredients, real doses</span></div></div>
+<div style="padding:30px 26px;display:flex;flex-direction:column;gap:12px"><div style="font-weight:700;font-size:17px;letter-spacing:-0.01em">Less prep, more life</div><div style="display:flex;gap:14px;align-items:center"><span class="disp" style="font-size:44px;color:#C42E62">10<span style="text-transform:none">s</span></span><span style="font-size:14px;line-height:1.35;color:#5B5150">from sealed to freshly mixed</span></div></div>
 </div>
 </section>
 
@@ -216,6 +179,34 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </section>
 
+<section id="how" style="padding:110px 0;background:#FBF7F0">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:64px;align-items:center">
+<div style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
+<div style="position:relative;width:360px;height:560px;display:flex;justify-content:center;align-items:flex-end">
+<div class="{{howGlowCls}}" style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(233,132,159,0.75),rgba(233,132,159,0) 70%);bottom:90px;opacity:{{howGlowOp}};transition:opacity .6s"></div>
+<div class="{{howWobCls}}" style="position:relative;height:540px;transform-origin:50% 85%;transform:rotate({{howRot}});transition:transform .7s cubic-bezier(.2,.7,.2,1)">
+<img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="Collagen + Creatine bottle" style="height:540px;width:auto;display:block;filter:drop-shadow(0 30px 30px rgba(28,20,20,0.22))">
+<sc-if value="{{howTap}}" hint-placeholder-val="{{true}}"><div class="ripple" style="position:absolute;left:50%;top:-6px;width:110px;height:110px;margin-left:-55px;border-radius:50%;border:3px solid #C42E62"></div></sc-if>
+<sc-if value="{{howTwist}}" hint-placeholder-val="{{false}}"><div class="spin" style="position:absolute;left:50%;top:-14px;width:160px;height:160px;margin-left:-80px;border-radius:50%;border:3px dashed #C42E62"></div></sc-if>
+</div>
+</div>
+</div>
+<div style="flex:1 1 480px;min-width:0">
+<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:16px">How it works</div>
+<h2 class="disp" style="font-size:76px;margin:0 0 16px">Fresh in<br>ten seconds.</h2>
+<p style="font-size:18px;line-height:1.6;color:#5B5150;margin:0 0 30px;max-width:460px">The ingredients wait in the cap, untouched, until you're ready. Click through the steps.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{howSteps}}" as="s" hint-placeholder-count="4">
+<button class="b" type="button" onClick="{{s.pick}}" style="text-align:left;display:flex;gap:18px;align-items:center;border-radius:22px;padding:18px 20px;background:{{s.bg}};color:{{s.fg}};border:1.5px solid {{s.border}};transition:all .35s">
+<span class="disp" style="font-size:40px;width:56px;color:{{s.num}}">{{s.n}}</span>
+<span style="flex:1"><span class="disp" style="display:block;font-size:26px">{{s.title}}</span><span style="display:block;font-size:15px;margin-top:6px;opacity:0.85;line-height:1.45">{{s.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
 <section id="box" style="background:#C42E62;color:#FFFFFF;padding:110px 0">
 <div class="wrap">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px">
@@ -245,80 +236,6 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </section>
 
-<section id="difference" style="padding:110px 0;background:#FBF7F0">
-<div class="wrap">
-<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:16px">The UpWell difference</div>
-<h2 class="disp" style="font-size:80px;margin:0 0 16px">Wellness has evolved.<br>Your drink should too.</h2>
-<p style="font-size:20px;color:#5B5150;margin:0 0 56px">Real functional ingredients. Freshly mixed. Effortlessly enjoyed.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
-<div class="lift" style="background:#C42E62;color:#FFFFFF;border-radius:26px;padding:26px;grid-row:span 1"><div class="disp" style="font-size:54px;color:#FFD3DF">01</div><div class="disp" style="font-size:28px;margin:14px 0 12px">Fresh by design</div><div style="font-size:15px;line-height:1.55;color:#FFE4EB">Why let your ingredients sit in water for months? UpWell keeps them separate until the moment you twist. Freshly mixed, right when you want it.</div></div>
-<div class="lift" style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:26px;padding:26px"><div class="disp" style="font-size:54px;color:#C42E62">02</div><div class="disp" style="font-size:28px;margin:14px 0 12px">Less prep. More life.</div><div style="font-size:15px;line-height:1.55;color:#5B5150">No scoop, no shaker, no mess. Your functional drink, ready with a twist and a shake. Anytime, anywhere.</div></div>
-<div class="lift" style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:26px;padding:26px"><div class="disp" style="font-size:54px;color:#C42E62">03</div><div class="disp" style="font-size:28px;margin:14px 0 12px">The good stuff. Nothing unnecessary.</div><div style="font-size:15px;line-height:1.55;color:#5B5150">Thoughtfully selected ingredients, focused formulations, low calories and no added preservatives.</div></div>
-<div class="lift" style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:26px;padding:26px"><div class="disp" style="font-size:54px;color:#C42E62">04</div><div class="disp" style="font-size:28px;margin:14px 0 12px">Real ingredients. Real doses.</div><div style="font-size:15px;line-height:1.55;color:#5B5150">7g collagen. 3g creatine. 9g protein. 0g sugar. We believe the numbers should speak for themselves.</div></div>
-<div class="lift" style="background:#1C1414;color:#FBF7F0;border-radius:26px;padding:26px"><div class="disp" style="font-size:54px;color:#E9849F">05</div><div class="disp" style="font-size:28px;margin:14px 0 12px">Nothing to hide.</div><div style="font-size:15px;line-height:1.55;color:#BDB2AF">No guessing games. No details hidden behind fancy promises. The front of the label should answer, not tease.</div></div>
-</div>
-</div>
-</section>
-
-<section id="app" style="padding:110px 0;overflow:hidden;background:#FFFFFF">
-<div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
-<div style="flex:1 1 460px;min-width:0">
-<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:14px">The UpWell app</div>
-<h2 class="disp" style="font-size:76px;margin:0 0 18px">More than a drink.<br>A way to move.</h2>
-<p style="font-size:18px;line-height:1.6;color:#5B5150;margin:0 0 28px;max-width:500px">Your box comes with an app that turns the ritual into progress — and a community.</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:30px">
-<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Track your ritual</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Scan the bottle, log in one tap, keep your streak.</div></div>
-<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Join UpWell Clubs</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Run, padel, yoga and cycling clubs, powered by UpWell.</div></div>
-<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Earn rewards</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Challenges and points that turn into free bottles.</div></div>
-<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">See your progress</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Energy, focus and sleep trends, week by week.</div></div>
-</div>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<a href="#" class="pill" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:14px">Download on the App Store</a>
-<a href="#" class="pill" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:14px">Get it on Google Play</a>
-</div>
-</div>
-<div style="flex:1 1 360px;min-width:0;display:flex;justify-content:center;position:relative">
-<div style="position:absolute;width:420px;height:420px;border-radius:50%;background:#FDE6E5;top:40px"></div>
-<div class="float" style="position:relative;width:250px;height:520px;border-radius:42px;background:#FBF7F0;border:9px solid #1C1414;padding:20px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;box-shadow:0 40px 80px rgba(28,20,20,0.2)">
-<div style="display:flex;justify-content:space-between;align-items:center"><span class="disp" style="font-size:22px">Today</span><span style="font-size:11px;font-weight:700;color:#C42E62">1,240 pts</span></div>
-<div style="background:#1C1414;color:#FBF7F0;border-radius:14px;padding:11px;font-size:11px;line-height:1.4"><span style="color:#E9849F;font-weight:700">COACH · </span>Club run at 6:30. Raspberry Protein+ after.</div>
-<div style="background:#FDE6E5;border-radius:14px;padding:11px;display:flex;gap:10px;align-items:center"><div style="width:34px;height:38px;border-radius:9px;background:#C42E62;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;font-weight:700">TUE<span class="disp" style="font-size:15px">21</span></div><div style="font-size:11px"><b>Sunrise Run Club</b><br>Interval session · 18:30</div></div>
-<div style="background:#FFFFFF;border-radius:14px;padding:9px;display:flex;gap:8px;align-items:center"><img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="" style="height:42px"><span style="flex:1;font-size:11px;font-weight:700">Collagen + Creatine</span><span style="width:18px;height:18px;border-radius:50%;background:#C42E62"></span></div>
-<div style="background:#FFFFFF;border-radius:14px;padding:11px"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:700"><span style="color:#C42E62">30-DAY STREAK</span><span>12/30</span></div><div style="height:6px;border-radius:3px;background:#F3ECE1;margin-top:7px;overflow:hidden"><div style="height:100%;width:40%;background:#C42E62"></div></div></div>
-<div style="background:#E3EFD3;border-radius:14px;padding:11px;font-size:11px;line-height:1.4;color:#12352B;flex:1"><b>This week</b><br>On days you logged Coconut Matcha, you rated your energy higher.</div>
-</div>
-</div>
-</div>
-</section>
-
-<section id="how" style="padding:110px 0;background:#FBF7F0">
-<div class="wrap" style="display:flex;flex-wrap:wrap;gap:64px;align-items:center">
-<div style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
-<div style="position:relative;width:360px;height:560px;display:flex;justify-content:center;align-items:flex-end">
-<div class="{{howGlowCls}}" style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(233,132,159,0.75),rgba(233,132,159,0) 70%);bottom:90px;opacity:{{howGlowOp}};transition:opacity .6s"></div>
-<div class="{{howWobCls}}" style="position:relative;height:540px;transform-origin:50% 85%;transform:rotate({{howRot}});transition:transform .7s cubic-bezier(.2,.7,.2,1)">
-<img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="Collagen + Creatine bottle" style="height:540px;width:auto;display:block;filter:drop-shadow(0 30px 30px rgba(28,20,20,0.22))">
-<sc-if value="{{howTap}}" hint-placeholder-val="{{true}}"><div class="ripple" style="position:absolute;left:50%;top:-6px;width:110px;height:110px;margin-left:-55px;border-radius:50%;border:3px solid #C42E62"></div></sc-if>
-<sc-if value="{{howTwist}}" hint-placeholder-val="{{false}}"><div class="spin" style="position:absolute;left:50%;top:-14px;width:160px;height:160px;margin-left:-80px;border-radius:50%;border:3px dashed #C42E62"></div></sc-if>
-</div>
-</div>
-</div>
-<div style="flex:1 1 480px;min-width:0">
-<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:16px">How it works</div>
-<h2 class="disp" style="font-size:76px;margin:0 0 16px">Fresh in<br>ten seconds.</h2>
-<p style="font-size:18px;line-height:1.6;color:#5B5150;margin:0 0 30px;max-width:460px">The ingredients wait in the cap, untouched, until you're ready. Click through the steps.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<sc-for list="{{howSteps}}" as="s" hint-placeholder-count="4">
-<button class="b" type="button" onClick="{{s.pick}}" style="text-align:left;display:flex;gap:18px;align-items:center;border-radius:22px;padding:18px 20px;background:{{s.bg}};color:{{s.fg}};border:1.5px solid {{s.border}};transition:all .35s">
-<span class="disp" style="font-size:40px;width:56px;color:{{s.num}}">{{s.n}}</span>
-<span style="flex:1"><span class="disp" style="display:block;font-size:26px">{{s.title}}</span><span style="display:block;font-size:15px;margin-top:6px;opacity:0.85;line-height:1.45">{{s.text}}</span></span>
-</button>
-</sc-for>
-</div>
-</div>
-</div>
-</section>
-
 <section id="ingredients" style="background:#2B0A18;color:#FBF7F0;padding:96px 0 100px;overflow:hidden">
 <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
 <div><h2 style="font-size:58px;font-weight:500;letter-spacing:-0.02em;line-height:1.02;margin:0 0 14px">Real ingredients. Real doses.</h2>
@@ -343,7 +260,7 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </section>
 
-<section id="founders" style="padding:110px 0 100px;background:#FFFFFF;overflow:hidden">
+<section id="founders" style="padding:110px 0 100px;background:#FBF7F0;overflow:hidden">
 <div class="wrap">
 <div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:16px">From the founders, and from you</div>
 <div style="background:#FFFFFF;border-radius:36px;display:flex;flex-wrap:wrap;overflow:hidden;border:1px solid #EAE2D6">
@@ -380,6 +297,37 @@ details summary::-webkit-details-marker{display:none}
 
 
 
+<section id="app" style="padding:110px 0;overflow:hidden;background:#FFFFFF">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+<div style="flex:1 1 460px;min-width:0">
+<div class="mono" style="font-size:12px;color:#C42E62;margin-bottom:14px">The UpWell app</div>
+<h2 class="disp" style="font-size:76px;margin:0 0 18px">More than a drink.<br>A way to move.</h2>
+<p style="font-size:18px;line-height:1.6;color:#5B5150;margin:0 0 28px;max-width:500px">Your box comes with an app that turns the ritual into progress — and a community.</p>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:30px">
+<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Track your ritual</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Scan the bottle, log in one tap, keep your streak.</div></div>
+<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Join UpWell Clubs</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Run, padel, yoga and cycling clubs, powered by UpWell.</div></div>
+<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">Earn rewards</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Challenges and points that turn into free bottles.</div></div>
+<div class="lift" style="background:#FBF7F0;border-radius:20px;padding:18px"><div class="disp" style="font-size:22px">See your progress</div><div style="font-size:14px;color:#5B5150;margin-top:6px;line-height:1.45">Energy, focus and sleep trends, week by week.</div></div>
+</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="#" class="pill" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:14px">Download on the App Store</a>
+<a href="#" class="pill" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:14px">Get it on Google Play</a>
+</div>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;justify-content:center;position:relative">
+<div style="position:absolute;width:420px;height:420px;border-radius:50%;background:#FDE6E5;top:40px"></div>
+<div class="float" style="position:relative;width:250px;height:520px;border-radius:42px;background:#FBF7F0;border:9px solid #1C1414;padding:20px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;box-shadow:0 40px 80px rgba(28,20,20,0.2)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="disp" style="font-size:22px">Today</span><span style="font-size:11px;font-weight:700;color:#C42E62">1,240 pts</span></div>
+<div style="background:#1C1414;color:#FBF7F0;border-radius:14px;padding:11px;font-size:11px;line-height:1.4"><span style="color:#E9849F;font-weight:700">COACH · </span>Club run at 6:30. Raspberry Protein+ after.</div>
+<div style="background:#FDE6E5;border-radius:14px;padding:11px;display:flex;gap:10px;align-items:center"><div style="width:34px;height:38px;border-radius:9px;background:#C42E62;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;font-weight:700">TUE<span class="disp" style="font-size:15px">21</span></div><div style="font-size:11px"><b>Sunrise Run Club</b><br>Interval session · 18:30</div></div>
+<div style="background:#FFFFFF;border-radius:14px;padding:9px;display:flex;gap:8px;align-items:center"><img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="" style="height:42px"><span style="flex:1;font-size:11px;font-weight:700">Collagen + Creatine</span><span style="width:18px;height:18px;border-radius:50%;background:#C42E62"></span></div>
+<div style="background:#FFFFFF;border-radius:14px;padding:11px"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:700"><span style="color:#C42E62">30-DAY STREAK</span><span>12/30</span></div><div style="height:6px;border-radius:3px;background:#F3ECE1;margin-top:7px;overflow:hidden"><div style="height:100%;width:40%;background:#C42E62"></div></div></div>
+<div style="background:#E3EFD3;border-radius:14px;padding:11px;font-size:11px;line-height:1.4;color:#12352B;flex:1"><b>This week</b><br>On days you logged Coconut Matcha, you rated your energy higher.</div>
+</div>
+</div>
+</div>
+</section>
+
 <section id="faq" style="padding:100px 0;background:#FBF7F0">
 <div class="wrap" style="display:flex;flex-wrap:wrap;gap:56px">
 <div style="flex:1 1 300px;min-width:0"><h2 style="font-size:52px;font-weight:500;letter-spacing:-0.02em;margin:0 0 16px">Questions</h2><p style="color:#5B5150;font-size:16px;line-height:1.6;margin:0">Anything else? Message us on WhatsApp — a real person answers.</p></div>
@@ -398,7 +346,7 @@ details summary::-webkit-details-marker{display:none}
 <img src="/assets/da6f4753838cc820e5bdab340ad18692.png" alt="UpWell" style="height:96px;width:auto;max-width:100%;display:block;margin-bottom:52px">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;margin-bottom:48px;font-size:15px">
 <div style="display:flex;flex-direction:column;gap:10px"><div style="color:#FBF7F0;font-weight:700">Shop</div><span>Build your box</span><span>Discovery box</span><span>Collagen + Creatine</span><span>Chocolate Clear Whey</span><span>Raspberry Protein+</span><span>Coconut Matcha</span></div>
-<div style="display:flex;flex-direction:column;gap:10px"><div style="color:#FBF7F0;font-weight:700">UpWell</div><span>The difference</span><span>Ingredients</span><span>The app</span><span>UpWell Clubs</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="color:#FBF7F0;font-weight:700">UpWell</div><span>Why UpWell</span><span>Ingredients</span><span>The app</span><span>UpWell Clubs</span></div>
 <div style="display:flex;flex-direction:column;gap:10px"><div style="color:#FBF7F0;font-weight:700">Help</div><span>WhatsApp us</span><span>Delivery</span><span>Subscriptions</span></div>
 <div style="display:flex;flex-direction:column;gap:10px"><div style="color:#FBF7F0;font-weight:700">Pay with</div><span>Whish</span><span>Cash on delivery</span></div>
 </div>
@@ -411,7 +359,7 @@ details summary::-webkit-details-marker{display:none}
 </a>
 </div>
 </template>
-<script id="dc-logic" type="text/x-dc" data-props='{"$preview":{"width":1440,"height":8400}}'>
+<script id="dc-logic" type="text/x-dc" data-props='{"$preview":{"width":1440,"height":7200}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);

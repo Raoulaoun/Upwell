@@ -47,19 +47,13 @@ details summary::-webkit-details-marker{display:none}
 <body>
 <div id="dc-root"></div>
 <template id="dc-template">
-<div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh;max-width:520px;margin:0 auto;position:relative;overflow-x:hidden;padding-bottom:84px">
-
-<div style="background:#2B0A18;color:#FBF7F0;overflow:hidden;height:32px;display:flex;align-items:center">
-<div class="marquee mono" style="font-size:10.5px">
-<sc-for list="{{ticker}}" as="t" hint-placeholder-count="12"><span style="display:flex;align-items:center;gap:10px;padding:0 16px;white-space:nowrap"><span style="width:5px;height:5px;border-radius:50%;background:#E9849F"></span>{{t}}</span></sc-for>
-</div>
-</div>
+<div style="font-family:'Archivo',sans-serif;color:#1C1414;background:#FBF7F0;min-height:100vh;max-width:520px;margin:0 auto;position:relative;overflow-x:clip;padding-bottom:84px">
 
 <header style="position:sticky;top:0;z-index:30;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #EFE7DB">
 <div class="px" style="display:flex;align-items:center;justify-content:space-between;height:60px">
 <button class="b" type="button" onClick="{{openMenu}}" aria-label="Open menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
 <a href="/m/" aria-label="UpWell home" style="display:flex;align-items:center;min-height:44px"><img src="/assets/31123edbeba1cd87a31fcf992a67861d.png" alt="UpWell" style="height:22px;width:auto;display:block"></a>
-<a href="/m/cart" aria-label="Cart, 1 box" style="width:44px;height:44px;display:flex;align-items:center;justify-content:flex-end;position:relative"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg><span style="position:absolute;top:6px;right:-6px;width:17px;height:17px;border-radius:50%;background:#C42E62;color:#FFFFFF;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span></a>
+<a href="/m/cart" aria-label="Cart, 1 box" style="width:44px;height:44px;display:flex;align-items:center;justify-content:flex-end;position:relative"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#1C1414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg><span style="position:absolute;top:5px;right:-3px;width:17px;height:17px;border-radius:50%;background:#C42E62;color:#FFFFFF;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span></a>
 </div>
 </header>
 
@@ -76,60 +70,36 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </sc-if>
 
-<section style="background:{{hero.bg}};color:{{hero.fg}};transition:background-color 1s,color 1s;overflow:hidden">
-<div style="padding:16px 16px 18px">
-<div style="position:relative;aspect-ratio:1 / 1">
-<div style="position:absolute;inset:0;border-radius:26px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,0.25);background:{{hero.bg}}">
+<section style="background:{{hero.bg}};color:{{hero.fg}};transition:background-color 1s,color 1s;overflow:hidden;height:calc(100svh - 60px - 78px);min-height:540px;max-height:860px;display:flex;flex-direction:column">
+<div style="flex:1 1 auto;min-height:180px;padding:12px 14px 10px;display:flex">
+<div style="position:relative;flex:1 1 auto">
+<div style="position:absolute;inset:0;border-radius:24px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,0.22);background:{{hero.bg}}">
 <sc-for list="{{heroScenes}}" as="h" hint-placeholder-count="4"><img class="scene" src="{{h.img}}" alt="{{h.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{h.op}}"></sc-for>
 </div>
-<div class="float" style="position:absolute;left:-6px;top:10%;background:#FFFFFF;color:#1C1414;border-radius:14px;padding:10px 12px;box-shadow:0 12px 28px rgba(28,20,20,0.18)"><div class="disp" style="font-size:26px;color:{{hero.color}}">{{hero.s1}}</div><div class="mono" style="font-size:9px;margin-top:4px;color:#5B5150">{{hero.l1}}</div></div>
-<div style="position:absolute;right:-6px;top:52%;background:#FFFFFF;color:#1C1414;border-radius:14px;padding:10px 12px;box-shadow:0 12px 28px rgba(28,20,20,0.18)"><div class="disp" style="font-size:26px;color:{{hero.color}}">{{hero.s2}}</div><div class="mono" style="font-size:9px;margin-top:4px;color:#5B5150">{{hero.l2}}</div></div>
+<div class="float" style="position:absolute;left:-4px;top:10%;background:#FFFFFF;color:#1C1414;border-radius:12px;padding:8px 10px;box-shadow:0 10px 24px rgba(28,20,20,0.18)"><div class="disp" style="font-size:22px;color:{{hero.color}}">{{hero.s1}}</div><div class="mono" style="font-size:8.5px;margin-top:3px;color:#5B5150">{{hero.l1}}</div></div>
+<div style="position:absolute;right:-4px;top:50%;background:#FFFFFF;color:#1C1414;border-radius:12px;padding:8px 10px;box-shadow:0 10px 24px rgba(28,20,20,0.18)"><div class="disp" style="font-size:22px;color:{{hero.color}}">{{hero.s2}}</div><div class="mono" style="font-size:8.5px;margin-top:3px;color:#5B5150">{{hero.l2}}</div></div>
 </div>
 </div>
-<div class="px" style="padding-top:4px;padding-bottom:30px;position:relative">
-<div class="mono" style="font-size:11px;color:{{hero.accent}};margin-bottom:12px;transition:color 1s">{{hero.moment}}</div>
-<h1 class="disp" style="font-size:58px;margin:0 0 14px">Wellness evolved. <span style="color:{{hero.accent}};transition:color 1s">Your drink</span> should too.</h1>
-<p style="font-size:16px;line-height:1.5;margin:0 0 20px;opacity:0.86">Real functional ingredients sealed in the cap until the moment you twist. No scoop, no shaker.</p>
-<a href="/m/box" style="display:flex;justify-content:center;align-items:center;gap:10px;background:{{hero.btnBg}};color:{{hero.btnFg}};text-decoration:none;font-weight:700;font-size:17px;padding:17px;border-radius:999px;transition:background-color 1s,color 1s">Build your box →</a>
-<a href="#how" style="display:block;text-align:center;color:{{hero.fg}};font-weight:600;font-size:15px;padding:14px 0 0">See how it works</a>
+<div class="px" style="flex:0 0 auto;padding-bottom:12px">
+<div class="mono" style="font-size:10px;color:{{hero.accent}};margin-bottom:8px;transition:color 1s">{{hero.moment}}</div>
+<h1 class="disp" style="font-size:40px;margin:0 0 8px">Wellness evolved. <span style="color:{{hero.accent}};transition:color 1s">Your drink</span> should too.</h1>
+<p style="font-size:14px;line-height:1.45;margin:0;opacity:0.86">Real functional ingredients sealed in the cap until you twist. No scoop, no shaker.</p>
 </div>
-<div class="row" style="padding-bottom:24px">
+<div class="row" style="flex:0 0 auto;padding-bottom:14px">
 <sc-for list="{{heroThumbs}}" as="t" hint-placeholder-count="4">
-<button class="b sn" type="button" onClick="{{t.pick}}" aria-label="Show {{t.name}}" aria-pressed="{{t.on}}" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:6px;background:{{t.bg}};color:#1C1414;border-radius:12px;padding:4px 12px 4px 4px;min-height:48px">
-<img src="{{t.img}}" alt="" style="height:40px;width:auto"><span style="font-weight:600;font-size:12px;text-align:left;line-height:1.15">{{t.l1}}<br>{{t.l2}}</span>
+<button class="b sn" type="button" onClick="{{t.pick}}" aria-label="Show {{t.name}}" aria-pressed="{{t.on}}" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:5px;background:{{t.bg}};color:#1C1414;border-radius:12px;padding:3px 10px 3px 3px;min-height:44px">
+<img src="{{t.img}}" alt="" style="height:36px;width:auto"><span style="font-weight:600;font-size:11.5px;text-align:left;line-height:1.15">{{t.l1}}<br>{{t.l2}}</span>
 <span class="{{t.barCls}}" style="position:absolute;left:0;bottom:0;height:3px;width:{{t.w}};background:{{t.color}}"></span>
 </button>
 </sc-for>
 </div>
 </section>
 
-<section style="background:#FFFFFF;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid #EFE7DB">
-<div style="padding:16px 20px;border-right:1px solid #EFE7DB;border-bottom:1px solid #EFE7DB;display:flex;gap:10px;align-items:center"><span class="disp" style="font-size:26px;color:#C42E62">&lt;50</span><span style="font-size:12px;line-height:1.3">calories per bottle</span></div>
-<div style="padding:16px 20px;border-bottom:1px solid #EFE7DB;display:flex;gap:10px;align-items:center"><span class="disp" style="font-size:26px;color:#C42E62">0G</span><span style="font-size:12px;line-height:1.3">sugar across the range</span></div>
-<div style="padding:16px 20px;border-right:1px solid #EFE7DB;display:flex;gap:10px;align-items:center"><span class="disp" style="font-size:26px;color:#C42E62">1–3</span><span style="font-size:12px;line-height:1.3">core ingredients</span></div>
-<div style="padding:16px 20px;display:flex;gap:10px;align-items:center"><span class="disp" style="font-size:26px;color:#C42E62">10s</span><span style="font-size:12px;line-height:1.3">sealed to mixed</span></div>
-</section>
-
-<section style="padding:56px 0">
-<div class="px">
-<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">Your day, upgraded</div>
-<h2 class="disp h2" style="margin-bottom:20px">Built for however you move.</h2>
-</div>
-<div class="row" style="margin-bottom:16px">
-<sc-for list="{{moments}}" as="m" hint-placeholder-count="4"><button class="b sn" type="button" onClick="{{m.pick}}" aria-pressed="{{m.on}}" style="border-radius:999px;padding:0 16px;min-height:44px;background:{{m.bg}};color:{{m.fg}};border:1.5px solid {{m.border}};display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;transition:all .3s"><span class="disp" style="font-size:18px">{{m.key}}</span><span style="opacity:0.75;font-size:12px">{{m.short}}</span></button></sc-for>
-</div>
-<div class="px">
-<div style="position:relative;aspect-ratio:4 / 5;border-radius:26px;overflow:hidden;background:#EDE5DA">
-<sc-for list="{{momentImgs}}" as="p" hint-placeholder-count="4"><img class="fade" src="{{p.img}}" alt="{{p.alt}}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{p.pos}};opacity:{{p.op}};transform:{{p.tf}}"></sc-for>
-<div class="disp" style="position:absolute;left:18px;top:14px;font-size:68px;color:#FFFFFF;text-shadow:0 4px 24px rgba(0,0,0,0.35)">{{mo.key}}</div>
-<div style="position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,0.96);border-radius:20px;padding:14px">
-<div class="mono" style="font-size:10px;color:{{mo.color}}">{{mo.time}}</div>
-<div style="font-weight:700;font-size:17px;margin-top:4px">{{mo.drink}}</div>
-<div style="font-size:13.5px;color:#5B5150;margin-top:3px;line-height:1.4">{{mo.line}}</div>
-<a href="/m/box" style="display:block;margin-top:12px;background:{{mo.color}};color:#FFFFFF;text-decoration:none;text-align:center;font-weight:700;padding:13px;border-radius:999px">Add to my box</a>
-</div>
-</div>
-</div>
+<section id="why" style="background:#FFFFFF;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid #EFE7DB">
+<div style="padding:18px 16px 18px 20px;border-right:1px solid #EFE7DB;border-bottom:1px solid #EFE7DB;display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:13.5px">Guilt-free</div><span class="disp" style="font-size:30px;color:#C42E62">&lt;50<span style="text-transform:none"></span></span><div style="font-size:12px;line-height:1.3;color:#5B5150">calories in every bottle</div></div>
+<div style="padding:18px 16px 18px 20px;border-bottom:1px solid #EFE7DB;display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:13.5px">Nothing unnecessary</div><span class="disp" style="font-size:30px;color:#C42E62">0<span style="text-transform:none">g</span></span><div style="font-size:12px;line-height:1.3;color:#5B5150">sugar across the range</div></div>
+<div style="padding:18px 16px 18px 20px;border-right:1px solid #EFE7DB;display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:13.5px">Premium product</div><span class="disp" style="font-size:30px;color:#C42E62">1–3<span style="text-transform:none"></span></span><div style="font-size:12px;line-height:1.3;color:#5B5150">core ingredients, real doses</div></div>
+<div style="padding:18px 16px 18px 20px;display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:13.5px">Less prep, more life</div><span class="disp" style="font-size:30px;color:#C42E62">10<span style="text-transform:none">s</span></span><div style="font-size:12px;line-height:1.3;color:#5B5150">from sealed to freshly mixed</div></div>
 </section>
 
 <section id="drinks" style="padding:56px 0;background:#FFFFFF">
@@ -163,6 +133,25 @@ details summary::-webkit-details-marker{display:none}
 </div>
 </section>
 
+<section id="how" style="padding:56px 20px;background:#FBF7F0">
+<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">How it works</div>
+<h2 class="disp h2" style="margin-bottom:18px">Fresh in ten seconds.</h2>
+<div style="display:flex;gap:14px;align-items:flex-end">
+<div style="position:relative;width:110px;height:300px;flex:0 0 auto;display:flex;justify-content:center;align-items:flex-end">
+<div class="{{howGlowCls}}" style="position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(233,132,159,0.75),rgba(233,132,159,0) 70%);bottom:60px;opacity:{{howGlowOp}};transition:opacity .6s"></div>
+<div class="{{howWobCls}}" style="position:relative;height:290px;transform-origin:50% 85%;transform:rotate({{howRot}});transition:transform .7s">
+<img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="Collagen + Creatine bottle" style="height:290px;width:auto;display:block">
+<sc-if value="{{howTwist}}" hint-placeholder-val="{{true}}"><div class="spin" style="position:absolute;left:50%;top:-10px;width:90px;height:90px;margin-left:-45px;border-radius:50%;border:2.5px dashed #C42E62"></div></sc-if>
+<sc-if value="{{howTap}}" hint-placeholder-val="{{false}}"><div class="ripple" style="position:absolute;left:50%;top:-4px;width:60px;height:60px;margin-left:-30px;border-radius:50%;border:2.5px solid #C42E62"></div></sc-if>
+</div>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{howSteps}}" as="s" hint-placeholder-count="4"><button class="b" type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="text-align:left;display:flex;gap:10px;align-items:center;border-radius:16px;padding:12px;background:{{s.bg}};color:{{s.fg}};border:1.5px solid {{s.border}};transition:all .3s"><span class="disp" style="font-size:24px;color:{{s.num}}">{{s.n}}</span><span class="disp" style="font-size:20px">{{s.title}}</span></button></sc-for>
+</div>
+</div>
+<p style="font-size:15px;line-height:1.55;color:#4E4446;margin:16px 0 0;background:#FFFFFF;border-radius:16px;padding:14px 16px;border:1px solid #EAE2D6">{{howText}}</p>
+</section>
+
 <section id="box" style="background:#C42E62;color:#FFFFFF;padding:56px 20px">
 <div class="mono" style="font-size:11px;color:#FFD3DF;margin-bottom:12px">Build your box</div>
 <h2 class="disp h2" style="margin-bottom:12px">Your mix. Your schedule.</h2>
@@ -183,13 +172,29 @@ details summary::-webkit-details-marker{display:none}
 <div style="margin-top:12px;border:2px dashed #FFD3DF;border-radius:18px;padding:14px;font-size:13.5px"><b>New to UpWell?</b> Discovery box coming soon. <span class="mono" style="font-size:10px;color:#FFD3DF">[Offer TBD]</span></div>
 </section>
 
-<section id="difference" style="padding:56px 0">
-<div class="px" style="margin-bottom:20px">
-<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">The UpWell difference</div>
-<h2 class="disp h2">Wellness has evolved. Your drink should too.</h2>
-</div>
+<section id="ingredients" style="background:#2B0A18;color:#FBF7F0;padding:56px 0">
+<div class="px" style="margin-bottom:20px"><h2 style="font-size:36px;font-weight:500;letter-spacing:-0.02em;line-height:1.05;margin:0 0 10px">Real ingredients. Real doses.</h2><p style="font-size:15px;color:#D9C3CB;margin:0">One to three core ingredients, at the amounts printed on the front.</p></div>
 <div class="row">
-<sc-for list="{{diff}}" as="d" hint-placeholder-count="5"><div class="sn" style="width:260px;min-height:250px;box-sizing:border-box;border-radius:22px;padding:20px;background:{{d.bg}};color:{{d.fg}};border:1px solid {{d.border}}"><div class="disp" style="font-size:42px;color:{{d.num}}">{{d.n}}</div><div class="disp" style="font-size:22px;margin:10px 0 8px">{{d.t}}</div><div style="font-size:14px;line-height:1.5;opacity:0.85">{{d.x}}</div></div></sc-for>
+<sc-for list="{{ingredients}}" as="i" hint-placeholder-count="7"><div class="sn" style="width:250px;height:360px;border-radius:20px;overflow:hidden;position:relative;background:#1C1414"><img src="{{i.img}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{i.pos}}"><div class="mono" style="position:absolute;top:14px;left:14px;font-size:10px;color:#1C1414;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:999px">{{i.label}}</div><div style="position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(rgba(43,10,24,0),rgba(43,10,24,0.94) 40%)"><div style="font-size:23px;font-weight:500;margin-bottom:6px">{{i.title}}</div><div style="font-size:13px;line-height:1.45;color:#E8D7DD">{{i.text}}</div></div></div></sc-for>
+</div>
+</section>
+
+<section id="founders" style="padding:56px 0;background:#FBF7F0;overflow:hidden">
+<div class="px">
+<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">From the founders, and from you</div>
+<div style="border-radius:24px;overflow:hidden;aspect-ratio:1 / 1;margin-bottom:18px"><img src="/assets/a4b305d251b5109bd618ef3121eb365d.webp" alt="The four UpWell drinks with fresh ingredients" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<h2 class="disp h2" style="margin-bottom:14px">Wellness evolved. The format didn't.</h2>
+<p style="font-size:16px;line-height:1.6;margin:0 0 12px">Wellness is no longer just about protein. Today, we care about the whole picture: ingredients, functional doses, sugar, calories and convenience.</p>
+<p style="font-size:16px;line-height:1.6;margin:0 0 14px">We believed the way we consume wellness should evolve too. That's why we created UpWell.</p>
+<div style="font-weight:700;margin-bottom:36px">— The UpWell founders</div>
+<h3 class="disp" style="font-size:32px;margin:0 0 6px">What our drinkers say</h3>
+<p style="font-size:14px;color:#5B5150;margin:0 0 16px">Share yours with <b style="color:#1C1414">#UpWellMoments</b>.</p>
+</div>
+<div class="row" style="margin-bottom:20px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3"><div class="sn" style="width:270px;box-sizing:border-box;background:#FBF7F0;border:1px solid #EAE2D6;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:2px"><sc-for list="{{stars}}" as="x" hint-placeholder-count="5"><svg width="15" height="15" viewBox="0 0 24 24" fill="{{r.color}}" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></sc-for></div><p style="font-size:15px;line-height:1.5;margin:0;color:#8A7F7C;font-style:italic">[Real customer quote about {{r.drink}}]</p><div style="display:flex;gap:10px;align-items:center;border-top:1px solid #EAE2D6;padding-top:10px"><img src="{{r.cut}}" alt="" style="height:42px;width:auto"><span><span style="display:block;font-weight:700;font-size:14px">[Name, area]</span><span class="mono" style="display:block;font-size:9.5px;color:{{r.color}};margin-top:3px">{{r.drink}}</span></span></div></div></sc-for>
+</div>
+<div class="gal">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="10"><div style="flex:0 0 170px;height:212px;border-radius:18px;overflow:hidden"><img src="{{g.img}}" alt="{{g.alt}}" style="width:100%;height:100%;object-fit:cover;object-position:{{g.pos}};display:block"></div></sc-for>
 </div>
 </section>
 
@@ -216,51 +221,6 @@ details summary::-webkit-details-marker{display:none}
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
 <a href="#" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:13px;padding:14px 10px;border-radius:12px;text-align:center">App Store</a>
 <a href="#" style="background:#1C1414;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:13px;padding:14px 10px;border-radius:12px;text-align:center">Google Play</a>
-</div>
-</section>
-
-<section id="how" style="padding:56px 20px">
-<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">How it works</div>
-<h2 class="disp h2" style="margin-bottom:18px">Fresh in ten seconds.</h2>
-<div style="display:flex;gap:14px;align-items:flex-end">
-<div style="position:relative;width:110px;height:300px;flex:0 0 auto;display:flex;justify-content:center;align-items:flex-end">
-<div class="{{howGlowCls}}" style="position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(233,132,159,0.75),rgba(233,132,159,0) 70%);bottom:60px;opacity:{{howGlowOp}};transition:opacity .6s"></div>
-<div class="{{howWobCls}}" style="position:relative;height:290px;transform-origin:50% 85%;transform:rotate({{howRot}});transition:transform .7s">
-<img src="/assets/1e312cf70451d331518596eb690219f9.webp" alt="Collagen + Creatine bottle" style="height:290px;width:auto;display:block">
-<sc-if value="{{howTwist}}" hint-placeholder-val="{{true}}"><div class="spin" style="position:absolute;left:50%;top:-10px;width:90px;height:90px;margin-left:-45px;border-radius:50%;border:2.5px dashed #C42E62"></div></sc-if>
-<sc-if value="{{howTap}}" hint-placeholder-val="{{false}}"><div class="ripple" style="position:absolute;left:50%;top:-4px;width:60px;height:60px;margin-left:-30px;border-radius:50%;border:2.5px solid #C42E62"></div></sc-if>
-</div>
-</div>
-<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{howSteps}}" as="s" hint-placeholder-count="4"><button class="b" type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="text-align:left;display:flex;gap:10px;align-items:center;border-radius:16px;padding:12px;background:{{s.bg}};color:{{s.fg}};border:1.5px solid {{s.border}};transition:all .3s"><span class="disp" style="font-size:24px;color:{{s.num}}">{{s.n}}</span><span class="disp" style="font-size:20px">{{s.title}}</span></button></sc-for>
-</div>
-</div>
-<p style="font-size:15px;line-height:1.55;color:#4E4446;margin:16px 0 0;background:#FFFFFF;border-radius:16px;padding:14px 16px;border:1px solid #EAE2D6">{{howText}}</p>
-</section>
-
-<section id="ingredients" style="background:#2B0A18;color:#FBF7F0;padding:56px 0">
-<div class="px" style="margin-bottom:20px"><h2 style="font-size:36px;font-weight:500;letter-spacing:-0.02em;line-height:1.05;margin:0 0 10px">Real ingredients. Real doses.</h2><p style="font-size:15px;color:#D9C3CB;margin:0">One to three core ingredients, at the amounts printed on the front.</p></div>
-<div class="row">
-<sc-for list="{{ingredients}}" as="i" hint-placeholder-count="7"><div class="sn" style="width:250px;height:360px;border-radius:20px;overflow:hidden;position:relative;background:#1C1414"><img src="{{i.img}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{i.pos}}"><div class="mono" style="position:absolute;top:14px;left:14px;font-size:10px;color:#1C1414;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:999px">{{i.label}}</div><div style="position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(rgba(43,10,24,0),rgba(43,10,24,0.94) 40%)"><div style="font-size:23px;font-weight:500;margin-bottom:6px">{{i.title}}</div><div style="font-size:13px;line-height:1.45;color:#E8D7DD">{{i.text}}</div></div></div></sc-for>
-</div>
-</section>
-
-<section id="founders" style="padding:56px 0;background:#FFFFFF;overflow:hidden">
-<div class="px">
-<div class="mono" style="font-size:11px;color:#C42E62;margin-bottom:12px">From the founders, and from you</div>
-<div style="border-radius:24px;overflow:hidden;aspect-ratio:1 / 1;margin-bottom:18px"><img src="/assets/a4b305d251b5109bd618ef3121eb365d.webp" alt="The four UpWell drinks with fresh ingredients" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-<h2 class="disp h2" style="margin-bottom:14px">Wellness evolved. The format didn't.</h2>
-<p style="font-size:16px;line-height:1.6;margin:0 0 12px">Wellness is no longer just about protein. Today, we care about the whole picture: ingredients, functional doses, sugar, calories and convenience.</p>
-<p style="font-size:16px;line-height:1.6;margin:0 0 14px">We believed the way we consume wellness should evolve too. That's why we created UpWell.</p>
-<div style="font-weight:700;margin-bottom:36px">— The UpWell founders</div>
-<h3 class="disp" style="font-size:32px;margin:0 0 6px">What our drinkers say</h3>
-<p style="font-size:14px;color:#5B5150;margin:0 0 16px">Share yours with <b style="color:#1C1414">#UpWellMoments</b>.</p>
-</div>
-<div class="row" style="margin-bottom:20px">
-<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3"><div class="sn" style="width:270px;box-sizing:border-box;background:#FBF7F0;border:1px solid #EAE2D6;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:2px"><sc-for list="{{stars}}" as="x" hint-placeholder-count="5"><svg width="15" height="15" viewBox="0 0 24 24" fill="{{r.color}}" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></sc-for></div><p style="font-size:15px;line-height:1.5;margin:0;color:#8A7F7C;font-style:italic">[Real customer quote about {{r.drink}}]</p><div style="display:flex;gap:10px;align-items:center;border-top:1px solid #EAE2D6;padding-top:10px"><img src="{{r.cut}}" alt="" style="height:42px;width:auto"><span><span style="display:block;font-weight:700;font-size:14px">[Name, area]</span><span class="mono" style="display:block;font-size:9.5px;color:{{r.color}};margin-top:3px">{{r.drink}}</span></span></div></div></sc-for>
-</div>
-<div class="gal">
-<sc-for list="{{gallery}}" as="g" hint-placeholder-count="10"><div style="flex:0 0 170px;height:212px;border-radius:18px;overflow:hidden"><img src="{{g.img}}" alt="{{g.alt}}" style="width:100%;height:100%;object-fit:cover;object-position:{{g.pos}};display:block"></div></sc-for>
 </div>
 </section>
 
@@ -342,7 +302,7 @@ const G0 = [['/assets/0289f17579e027f6e9e3da68fd4c90f0.webp', '50% 50%'], ['/ass
 const faq = [['How do I open the bottle?', '1. Twist the cap counter-clockwise while holding the band. 2. Tap the top firmly to release the ingredients. 3. Shake for a few seconds, then drink.'], ['Why are the ingredients in the cap?', 'Kept separate from the water until you drink, so they are freshly mixed every time.'], ['How does building a box work?', 'Pick 6, 12 or 24 bottles, mix any of the four drinks, then subscribe or buy once. Bigger boxes save more.'], ['Can I skip or pause?', 'Anytime, in the UpWell app. Skip, pause or change your mix.'], ['How do I pay?', 'With Whish or cash on delivery. On a subscription, we message you 2–3 days before each delivery to confirm, then you pay by Whish request or in cash.']].map(([q, a]) => ({ q, a }));
 const ticker0 = ['The smart cap', '7g collagen', '3g creatine', '9g protein', '0g sugar', 'Under 50 calories', 'Twist · Tap · Shake'];
 const menuDrinks = M.map((m) => ({ cut: CUT[m.id], name: m.drink, key: m.key, color: m.color }));
-const menuLinks = [['Why UpWell', '#difference'], ['How it works', '#how'], ['Ingredients', '#ingredients'], ['The app', '#app'], ['Questions', '#faq']].map(([label, href]) => ({ label, href }));
+const menuLinks = [['Our drinks', '/m/#drinks'], ['Why UpWell', '/m/#why'], ['Build your box', '/m/box'], ['Ingredients', '/m/#ingredients'], ['App', '/m/#app'], ['Questions', '/m/#faq']].map(([label, href]) => ({ label, href }));
 const st = s.step;
 return {
 ticker: ticker0.concat(ticker0), hero, heroScenes, heroThumbs, moments, momentImgs, mo, cards, tiers, diff, howSteps, ingredients, reviews, stars: [1, 2, 3, 4, 5], gallery: G0.concat(G0), faq, menuDrinks, menuLinks,
