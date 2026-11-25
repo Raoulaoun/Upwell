@@ -79,7 +79,7 @@
           continue;
         }
         let v;
-        if (whole) { const raw = lookup(whole[1], scope); if (typeof raw === 'function') continue; v = str(raw); }
+        if (whole) { const raw = lookup(whole[1], scope); if (typeof raw === 'function' || raw == null || raw === false) continue; v = str(raw); }
         else v = val.indexOf('{{') < 0 ? val : val.replace(HOLE, (_, p) => str(lookup(p, scope)));
         try { el.setAttribute(name, v); } catch (e) { /* skip invalid attribute */ }
       }

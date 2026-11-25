@@ -3,16 +3,12 @@ import re, sys, os, json
 SRC = sys.argv[1]
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
 PAGES = {
-  'Main': ('index.html', False, '/m/'), 'Product': ('product.html', False, '/m/product'),
-  'Packs': ('box.html', False, '/m/box'), 'Cart': ('cart.html', False, '/m/cart'),
-  'M-Home': ('m/index.html', True, '/'), 'M-Product': ('m/product.html', True, '/product'),
-  'M-Packs': ('m/box.html', True, '/box'), 'M-Cart': ('m/cart.html', True, '/cart'),
+  'Main': ('index.html', False, None), 'Drinks': ('drinks.html', False, None), 'Product': ('product.html', False, None),
+  'Packs': ('box.html', False, None), 'Cart': ('cart.html', False, None), 'Contact': ('contact.html', False, None),
 }
-LINKS = [('M-Home.dc.html', '/m/'), ('M-Product.dc.html', '/m/product'), ('M-Packs.dc.html', '/m/box'), ('M-Cart.dc.html', '/m/cart'),
-         ('Main.dc.html', '/'), ('Product.dc.html', '/product'), ('Packs.dc.html', '/box'), ('Cart.dc.html', '/cart')]
+LINKS = [('Main.dc.html', '/'), ('Drinks.dc.html', '/drinks'), ('Product.dc.html', '/product'), ('Packs.dc.html', '/box'), ('Cart.dc.html', '/cart'), ('Contact.dc.html', '/contact')]
 ASSETS = {f.split('.')[0]: f for f in os.listdir(os.path.join(OUT, 'assets'))}
-TITLES = {'Main': 'UpWell — Wellness evolved', 'Product': 'UpWell — The drinks', 'Packs': 'UpWell — Build your box', 'Cart': 'UpWell — Your box',
-          'M-Home': 'UpWell — Wellness evolved', 'M-Product': 'UpWell — The drinks', 'M-Packs': 'UpWell — Build your box', 'M-Cart': 'UpWell — Your box'}
+TITLES = {'Main': 'UpWell — Wellness evolved', 'Drinks': 'UpWell — Our drinks', 'Product': 'UpWell — Product details', 'Packs': 'UpWell — Build your box', 'Cart': 'UpWell — Your box', 'Contact': 'UpWell — Contact us'}
 SWITCH = """<script>(function(){var m=location.search.match(/view=(desktop|mobile)/);try{if(m)sessionStorage.setItem('uw-view',m[1]);var p=sessionStorage.getItem('uw-view');}catch(e){}var small=window.matchMedia('(max-width: 760px)').matches;var want=p?p==='mobile':small;if(want!==%s){location.replace('%s'+location.hash);}})();</script>"""
 for name, (out, mobile, other) in PAGES.items():
     s = open(os.path.join(SRC, name + '.dc.html'), encoding='utf-8').read()
@@ -34,7 +30,6 @@ for name, (out, mobile, other) in PAGES.items():
 <meta name="theme-color" content="#C42E62">
 <title>{TITLES[name]}</title>
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-{SWITCH % ('true' if mobile else 'false', other)}
 {helmet.strip()}
 </head>
 <body>
